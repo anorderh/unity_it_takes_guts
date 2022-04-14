@@ -1,0 +1,22 @@
+# Files to ignore
+2D Game/[Ll]ibrary/
+2D Game/[Tt]emp/
+2D Game/[Oo]bj/
+2D Game/[Bb]uild/
+2D Game/[Bb]uilds/
+2D Game/[Ll]ogs/
+2D Game/[Uu]ser[Ss]ettings/
+
+# MemoryCaptures
+2D Game/[Mm]emoryCaptures/
+
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+*.app

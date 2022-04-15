@@ -7,16 +7,19 @@ public class player2DController : MonoBehaviour
     public float jumpPower = 5;
 
     private Rigidbody2D _rigidbody;
+    private Animator animator;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     private void Update()
     {
         var movement = Input.GetAxis("Horizontal");
+        animator.SetFloat("speed", Mathf.Abs(movement));
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * speed;
 
         if (!Mathf.Approximately(0, movement))

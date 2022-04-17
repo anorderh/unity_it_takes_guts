@@ -8,10 +8,12 @@ public class player2DController : MonoBehaviour
     [SerializeField] public LayerMask whatIsGround;
     public Collider2D standing;
     public Transform ceilingCheck;
+    public Transform groundCheck;
 
 
     private float ceilingRadius = 0.2f;
     private bool crouchFlag;
+    private bool groundFlag;
     private float movement;
     private Vector3 m_Velocity = Vector3.zero;
     private Rigidbody2D _rigidbody;
@@ -22,12 +24,15 @@ public class player2DController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         crouchFlag = false;
+        groundFlag = true;
     }
 
     // Update is called once per frame
     private void Update()
     {
         isCrouched();
+        isGrounded();
+
         if (crouchFlag) {
             movement = Input.GetAxisRaw("Horizontal") * (speed/3);
         } else {
@@ -40,9 +45,15 @@ public class player2DController : MonoBehaviour
 
         animator.SetFloat("speed", Mathf.Abs(movement));
         animator.SetFloat("y", _rigidbody.velocity.y);
+        if (crouchFlag != animator.GetBool("crouched")) {
+            animator.SetBool("crouched", crouchFlag);
+        }
+        if (groundFlag != animator.GetBool("grounded")) {
+            animator.SetBool("grounded", groundFlag);
+        }
 
 
-        if (Mathf.Abs(_rigidbody.velocity.y) < 0.0001f)  {
+        if (groundFlag)  {
             if (Input.GetButtonDown("Jump"))
                 _rigidbody.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
         
@@ -52,18 +63,23 @@ public class player2DController : MonoBehaviour
 
     void isCrouched() {
         if (Input.GetButtonDown("Crouch") || Physics2D.OverlapCircle(ceilingCheck.position, ceilingRadius, whatIsGround)) {
-            animator.SetBool("crouched", true);
             crouchFlag = true;
 
         } else if (Input.GetButtonUp("Crouch")) {
-            animator.SetBool("crouched", false);
             crouchFlag = false;
+        }
+    }
+
+    void isGrounded() {
+        if (Physics2D.OverlapCircle(groundCheck.position, ceilingRadius, whatIsGround)) {
+            groundFlag = true;
+        } else {
+            groundFlag = false;
         }
     }
 
     void FixedUpdate () 
     {
-
         Vector3 targetVelocity = new Vector2(movement, _rigidbody.velocity.y);
         _rigidbody.velocity = Vector3.SmoothDamp(_rigidbody.velocity, targetVelocity, ref m_Velocity, .1f);
         

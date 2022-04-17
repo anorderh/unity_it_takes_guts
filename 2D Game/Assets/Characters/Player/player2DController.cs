@@ -3,12 +3,14 @@ using UnityEngine;
 public class player2DController : MonoBehaviour
 {
 
-    public float speed = 1f;
-    public int jumpPower = 10;
+    [Range(0,5)] [SerializeField] public float speed = 1f;
+    [Range(0,50)]  [SerializeField] public int jumpPower = 10;
+    [SerializeField] public LayerMask whatIsGround;
     public Collider2D standing;
-    public Collider2D crouch;
+    public Transform ceilingCheck;
 
 
+    private float ceilingRadius = 0.2f;
     private bool crouchFlag;
     private float movement;
     private Vector3 m_Velocity = Vector3.zero;
@@ -34,7 +36,6 @@ public class player2DController : MonoBehaviour
         movement *= Time.fixedDeltaTime;
 
         standing.enabled = !animator.GetBool("crouched");
-        crouch.enabled = !(standing.enabled);
 
 
         animator.SetFloat("speed", Mathf.Abs(movement));
@@ -50,7 +51,7 @@ public class player2DController : MonoBehaviour
     }
 
     void isCrouched() {
-        if (Input.GetButtonDown("Crouch")) {
+        if (Input.GetButtonDown("Crouch") || Physics2D.OverlapCircle(ceilingCheck.position, ceilingRadius, whatIsGround)) {
             animator.SetBool("crouched", true);
             crouchFlag = true;
 

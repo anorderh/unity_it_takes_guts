@@ -6,7 +6,6 @@ public class materialChanger : MonoBehaviour
 {
     [SerializeField] public PhysicsMaterial2D stuck;
     [SerializeField] public PhysicsMaterial2D slippery;
-
     [SerializeField] public Collider2D inputCollider;
 
     private Rigidbody2D rb;
@@ -24,14 +23,7 @@ public class materialChanger : MonoBehaviour
         horMove = Mathf.Abs(Input.GetAxis("Horizontal"));
         verMove = Mathf.Abs(Input.GetAxis("Vertical"));
 
-        if (rb != null) {
-            moving = rb.velocity.Equals(Vector3.zero) ? true : false;
-        } else {
-            moving = false;
-        }
-
-
-        if ((horMove > 0 || verMove > 0) || moving) {
+        if ((horMove > 0 || verMove > 0)) {
             inputCollider.sharedMaterial = slippery;
         } else {
             inputCollider.sharedMaterial = stuck;

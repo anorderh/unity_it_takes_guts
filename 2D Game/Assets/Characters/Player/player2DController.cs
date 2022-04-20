@@ -3,7 +3,7 @@ using UnityEngine;
 public class player2DController : MonoBehaviour
 {
 
-    [Range(0,5)] [SerializeField] public float speed = 1f;
+    [Range(0,500)] [SerializeField] public float speed = 1f;
     [Range(0,50)]  [SerializeField] public int jumpPower = 10;
     [SerializeField] public LayerMask whatIsGround;
     public Collider2D standing;
@@ -15,7 +15,7 @@ public class player2DController : MonoBehaviour
 
     private RaycastHit2D Hit2D;
     private float ceilingRadius = 0.2f;
-    private bool crouchFlag;
+    public bool crouchFlag;
     private bool ceilingFlag;
     private bool groundFlag;
     private bool hangFlag;
@@ -45,12 +45,13 @@ public class player2DController : MonoBehaviour
         isHanging();
 
         
-
         // movement speed
         if (crouchFlag) {
             movement = Input.GetAxisRaw("Horizontal") * (speed/3);
         } else if (hangFlag) {
             movement = Input.GetAxisRaw("Horizontal") * (speed/5);
+        } else if (animator.GetBool("attacking") && groundFlag) {
+            movement = Input.GetAxisRaw("Horizontal") * (speed/8);
         } else {
             movement = Input.GetAxisRaw("Horizontal") * speed;
         }

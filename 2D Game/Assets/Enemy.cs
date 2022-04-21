@@ -37,7 +37,6 @@ public class Enemy : MonoBehaviour
         foreach (Collider2D collider in colliders) {
             collider.enabled = false;
         }
-        GetComponent<Rigidbody2D>().isKinematic = true;
         this.enabled = false;
     }
 }

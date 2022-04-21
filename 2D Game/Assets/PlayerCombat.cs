@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [Header("Defense")]
+    public float maxHealth = 200f;
+    public float currentHealth;
 
-    public Animator animator;
+    [Header("Offense")]
     public LayerMask enemyLayers;
     public Transform attackPoint;
     public float attackRange = 1f;
@@ -13,28 +16,56 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate;
     public float comboRate;
 
+    public Animator animator;
+
     private float lastAttack = 0f;
     private bool attackFlag;
     private Rigidbody2D rb;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Attack") && animator.GetBool("grounded") && !animator.GetBool("crouched")) {
-            if (!animator.GetBool("attacking")) {
-                animator.SetBool("attacking", true);
-            }
-        
+    
             Attack();
         }
+    }
 
-        if (Time.time > lastAttack + comboRate) {
-            animator.SetBool("attacking", false);
+    void TakeDamage(float damage, float enemyX) {
+        // subtract damage
+        currentHealth -= damage;
+        animator.SetTrigger("Hurt");
+
+        // knocking enemy back
+        if (rb.position.x < enemyX) {
+            rb.AddForce(Vector2.left*15, ForceMode2D.Impulse);
+        } else {
+            rb.AddForce(Vector2.right*15, ForceMode2D.Impulse);
         }
+
+        // check for death
+        if (currentHealth <= 0) {
+            playerDie();
+        }
+    }
+
+    void playerDie() {
+        //die animation
+        animator.SetBool("isDead", true);
+
+        // disable collider & script
+        Collider2D[] playerColliders = GetComponents<Collider2D>();
+
+        foreach (Collider2D part in playerColliders) {
+            part.enabled = false;
+        }
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        // this.enabled = false;
     }
 
     void Attack() {

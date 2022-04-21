@@ -27,7 +27,7 @@ public class EnemyTracking : MonoBehaviour
     private Path path;
     private float angle;
     private int currentWaypoint = 0;
-    bool isGrounded;
+    public bool isGrounded;
     private Vector2 force = Vector2.zero;
     Seeker seeker;
     Rigidbody2D rb;
@@ -84,7 +84,7 @@ public class EnemyTracking : MonoBehaviour
             }
         }
 
-        force = rb.gravityScale > 1 ? force : force*0.7f;
+        force = rb.gravityScale > 1 ? force : force*0.8f;
         if (Mathf.Abs(rb.velocity.x) < 5f) {
             rb.AddForce(force);
         }

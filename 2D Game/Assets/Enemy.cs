@@ -21,6 +21,13 @@ public class Enemy : MonoBehaviour
 
     void Update() {
         animator.SetFloat("x", Mathf.Abs(rb.velocity.x));
+        animator.SetBool("grounded", tracking.isGrounded);
+
+        if (rb.velocity.x > 5f) {
+            rb.velocity = new Vector2(5f, rb.velocity.y);
+        } else if (rb.velocity.x < -5f) {
+            rb.velocity = new Vector2(-5f, rb.velocity.y);
+        }
     }
 
     public void TakeDamage(int damage, float playerX) {
@@ -28,6 +35,7 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
         animator.SetTrigger("Hurt");
 
+        // knocking enemy back
         if (rb.position.x < playerX) {
             rb.AddForce(Vector2.left*15, ForceMode2D.Impulse);
         } else {

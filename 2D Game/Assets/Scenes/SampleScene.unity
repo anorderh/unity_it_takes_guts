@@ -3420,7 +3420,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 309556016}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 9f30af1b57965c74b804e618924deba3, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -4099,6 +4099,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &641669897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641669898}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &641669898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641669897}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.156, y: 0.028, z: -17.038507}
+  m_LocalScale: {x: 0.1911373, y: 0.1911373, z: 0.1911373}
+  m_Children: []
+  m_Father: {fileID: 866261310}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &840098081
 GameObject:
   m_ObjectHideFlags: 0
@@ -4221,14 +4251,15 @@ GameObject:
   m_Component:
   - component: {fileID: 866261310}
   - component: {fileID: 866261309}
+  - component: {fileID: 866261308}
   - component: {fileID: 866261307}
   - component: {fileID: 866261306}
   - component: {fileID: 866261305}
   - component: {fileID: 866261304}
   - component: {fileID: 866261311}
-  - component: {fileID: 866261308}
   - component: {fileID: 866261313}
   - component: {fileID: 866261312}
+  - component: {fileID: 866261314}
   m_Layer: 6
   m_Name: Imp
   m_TagString: Untagged
@@ -4328,7 +4359,7 @@ Rigidbody2D:
   m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 15
-  m_GravityScale: 0
+  m_GravityScale: 5
   m_Material: {fileID: 6200000, guid: 720054ae94352454eb3156f9bd1d6cad, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -4397,6 +4428,7 @@ Transform:
   m_LocalScale: {x: 5.2318416, y: 5.2318416, z: 5.2318416}
   m_Children:
   - {fileID: 595863188}
+  - {fileID: 641669898}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4433,14 +4465,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   groundPoint: {fileID: 595863188}
-  speed: 500
-  nextWaypointDistance: 0.4
+  speed: 800
+  nextWaypointDistance: 1.6
   jumpNodeHeightRequirement: 0.6
-  jumpModifier: 1
+  jumpModifier: 1.2
   jumpCheckOffset: 0.2
   followEnabled: 1
   jumpEnabled: 1
   directionLookEnabled: 1
+  isGrounded: 0
 --- !u!114 &866261313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4469,6 +4502,27 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &866261314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866261303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17def5ef685d8434f93a4ee7fc34ce0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagableLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  attackPoint: {fileID: 641669898}
+  attackRange: 1
+  attackDamage: 35
+  attackRate: 0
+  comboRate: 0
+  animator: {fileID: 866261304}
 --- !u!1 &875688601
 GameObject:
   m_ObjectHideFlags: 0
@@ -6322,7 +6376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 089ef96ce8bf8a64eb69d1944a319906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1787048679}
+  maxHealth: 200
+  currentHealth: 0
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -6331,6 +6386,7 @@ MonoBehaviour:
   attackDamage: 35
   attackRate: 0.15
   comboRate: 0.3
+  animator: {fileID: 1787048679}
 --- !u!1 &1837442516
 GameObject:
   m_ObjectHideFlags: 0

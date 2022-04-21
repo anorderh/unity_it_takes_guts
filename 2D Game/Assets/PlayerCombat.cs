@@ -15,6 +15,11 @@ public class PlayerCombat : MonoBehaviour
 
     private float lastAttack = 0f;
     private bool attackFlag;
+    private Rigidbody2D rb;
+
+    void Start() {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -54,7 +59,9 @@ public class PlayerCombat : MonoBehaviour
         //filtering multiple colldiers on 1 enemy
         foreach(Collider2D enemy in enemiesHit) {
             if (pastCollider == null || pastCollider.gameObject != enemy.gameObject) {
-                enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+
+
+                enemy.GetComponent<Enemy>().TakeDamage(attackDamage, rb.position.x);
             }
             pastCollider = enemy;
         }

@@ -24,9 +24,9 @@ public class materialChanger : MonoBehaviour
         verMove = Mathf.Abs(Input.GetAxis("Vertical"));
 
         if ((horMove > 0 || verMove > 0)) {
-            inputCollider.sharedMaterial = slippery;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         } else {
-            inputCollider.sharedMaterial = stuck;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 }

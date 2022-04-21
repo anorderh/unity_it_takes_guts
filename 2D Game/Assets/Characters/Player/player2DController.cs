@@ -12,12 +12,12 @@ public class player2DController : MonoBehaviour
     public Transform RWallCheck;
     public Transform LWallCheck;
 
-
-    private RaycastHit2D Hit2D;
+    private float verMove;
+    private float horMove;
     private float ceilingRadius = 0.2f;
     public bool crouchFlag;
     private bool ceilingFlag;
-    private bool groundFlag;
+    public bool groundFlag;
     private bool hangFlag;
     private float movement;
     private Vector3 m_Velocity = Vector3.zero;
@@ -39,9 +39,10 @@ public class player2DController : MonoBehaviour
     private void Update()
     {
         // flags
+        isStill();
+        isGrounded();
         ceilingAbove();
         isCrouched();
-        isGrounded();
         isHanging();
 
         
@@ -79,9 +80,7 @@ public class player2DController : MonoBehaviour
         // checking & implementing jump
         if ((groundFlag || hangFlag) && Input.GetButtonDown("Jump"))  {
             tryJump();
-        
         } 
-        
     }
 
     void ceilingAbove() {
@@ -102,10 +101,21 @@ public class player2DController : MonoBehaviour
     }
 
     void isGrounded() {
-        if (Physics2D.OverlapCircle(groundCheck.position, ceilingRadius, whatIsGround)) {
+        if (Physics2D.OverlapCircle(groundCheck.position, 0.1f, whatIsGround)) {
             groundFlag = true;
         } else {
             groundFlag = false;
+        }
+    }
+
+    void isStill() {
+        horMove = Mathf.Abs(Input.GetAxis("Horizontal"));
+        verMove = Mathf.Abs(Input.GetAxis("Vertical"));
+
+        if (groundFlag && !(horMove > 0f || verMove > 0f)) {
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        } else {
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
@@ -134,8 +144,9 @@ public class player2DController : MonoBehaviour
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y/2);
         } 
 
-        if (!Mathf.Approximately(0, movement)) 
+        if (!Mathf.Approximately(0, movement)) {
             transform.rotation = movement > 0 ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
+        }
     }
 
 }

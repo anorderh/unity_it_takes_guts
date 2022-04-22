@@ -6,45 +6,61 @@ public class EnemyCombat : MonoBehaviour
 {
     public LayerMask damagableLayers;
     public Transform attackPoint;
-    public float attackRange = 1f;
+    public float attackRange = 0.5f;
     public int attackDamage = 35;
-    public float attackRate;
-    public float comboRate;
+    public float attackRate = 0.5f;
 
-    public Animator animator;
-
+    private Animator animator;
     private Rigidbody2D rb;
+    private Health health;
+    private float attackTime;
+    // private bool attacking = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        health = GetComponent<Health>();
+        attackTime = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Physics2D.OverlapCircle(attackPoint.position, attackRange, damagableLayers)) {
-
+        if (health.Alive) {
+            if (Physics2D.OverlapCircle(attackPoint.position, attackRange, damagableLayers) && (Time.time > attackTime)) {
+                    rb.velocity = (rb.velocity.x > 0 ? new Vector2(2f, rb.velocity.y) : new Vector2(-2f, rb.velocity.y));
+                    animator.SetTrigger("attack");
+            }
+        } else {
+            this.enabled = false;
         }
-        
     }
 
-    void DetectPlayer() {
+    public void Attack() {
         Collider2D[] thingsHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, damagableLayers);
 
         if (thingsHit.Length > 0) {
+            Collider2D pastCollider = null;
 
             foreach(Collider2D thing in thingsHit) {
-                if (thing.gameObject.GetComponent<player2DController>() != null) {
-                    animator.SetBool("combo", !animator.GetBool("combo"));
-                    animator.SetTrigger("attack");
-
-                    // damage method
+                // check if object has Health
+                if (thing.gameObject.GetComponent<Health>() != null) {
+                    // check if Collider gameObject is not same as last Collider
+                    if (pastCollider == null || (thing.gameObject != pastCollider.gameObject)) {
+                        thing.gameObject.GetComponent<Health>().TakeDamage(attackDamage, rb.position.x);
+                    }
                 }
+                pastCollider = thing;
             }
         }
+
+    }
+
+    public void AttackCooldown() {
+         attackTime = Time.time + attackRate;
     }
 
     void OnDrawGizmosSelected() {

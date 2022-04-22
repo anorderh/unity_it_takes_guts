@@ -11,9 +11,11 @@ public class EnemyTracking : MonoBehaviour
     public float pathUpdateSeconds = 0.5f;
     [SerializeField] public LayerMask whatIsGround;
     public Transform groundPoint;
+    public Transform ceilingPoint;
 
     [Header("Physics")]
     public float speed = 200f;
+    public float speedCap = 5f;
     public float nextWaypointDistance = 3f;
     public float jumpNodeHeightRequirement = 0.2f;
     public float jumpModifier = 0.3f;
@@ -28,25 +30,26 @@ public class EnemyTracking : MonoBehaviour
     private float angle;
     private int currentWaypoint = 0;
     public bool isGrounded;
+    public bool ceilingAbove;
     private Vector2 force = Vector2.zero;
     Seeker seeker;
     Rigidbody2D rb;
     private Collider2D[] enemyColliders;
     private Vector3 startOffset;
+    private Animator animator;
 
     void Start() {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
+        // speed cap
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, speedCap);
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
 
     void FixedUpdate() {
-        if (DetectSlope()) {
-            rb.gravityScale = 0.4f;
-        } else {
-            rb.gravityScale = 3;
-        }
+        AdjustForSlope();
 
         if (TargetInDistance() && followEnabled) {
             PathFollow();
@@ -72,22 +75,22 @@ public class EnemyTracking : MonoBehaviour
 
         // checking if onGround
         isGrounded = Physics2D.OverlapCircle(groundPoint.position, 0.1f, whatIsGround);
+        ceilingAbove = Physics2D.OverlapCircle(ceilingPoint.position, 0.1f, whatIsGround);
 
         // direction && calculating force towards target
         Vector2 direction = ((Vector2)target.transform.position - rb.position).normalized;
         force = direction * speed * Time.deltaTime;
 
         // check Jump
-        if (jumpEnabled && isGrounded) {
+        if (jumpEnabled && isGrounded && !ceilingAbove) {
             if (direction.y > jumpNodeHeightRequirement) {
                 rb.AddForce(Vector2.up * speed * jumpModifier);
             }
         }
 
         force = rb.gravityScale > 1 ? force : force*0.8f;
-        if (Mathf.Abs(rb.velocity.x) < 5f) {
-            rb.AddForce(force);
-        }
+        rb.AddForce(force);
+
 
         // finding distance to curWaypoint, to check if next WayPoint should be pursued
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -130,11 +133,11 @@ public class EnemyTracking : MonoBehaviour
         return null;
     }
 
-    bool DetectSlope() {
+    void AdjustForSlope() {
         if (isGrounded && Mathf.Abs(rb.velocity.y) > 0) {
-            return true;
+            rb.gravityScale = 0.4f;
         } else {
-            return false;
+            rb.gravityScale = 3;
         }
     }
 
@@ -144,6 +147,6 @@ public class EnemyTracking : MonoBehaviour
         }
 
         Gizmos.DrawWireSphere(groundPoint.position, 0.1f);
+        Gizmos.DrawWireSphere(ceilingPoint.position, 0.1f);
     }
- 
 }

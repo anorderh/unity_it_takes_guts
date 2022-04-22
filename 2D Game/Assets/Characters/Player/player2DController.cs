@@ -19,6 +19,7 @@ public class player2DController : MonoBehaviour
     private bool ceilingFlag;
     public bool groundFlag;
     private bool hangFlag;
+    private bool hurtFlag;
     private float movement;
     private Vector3 m_Velocity = Vector3.zero;
     private Rigidbody2D _rigidbody;
@@ -112,7 +113,7 @@ public class player2DController : MonoBehaviour
         horMove = Mathf.Abs(Input.GetAxis("Horizontal"));
         verMove = Mathf.Abs(Input.GetAxis("Vertical"));
 
-        if (groundFlag && !(horMove > 0f || verMove > 0f)) {
+        if (groundFlag && !(horMove > 0f || verMove > 0f) && hurtFlag) {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         } else {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;

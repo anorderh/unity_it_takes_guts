@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [Header("Defense")]
-    public float maxHealth = 200f;
-    public float currentHealth;
 
     [Header("Offense")]
     public LayerMask enemyLayers;
     public Transform attackPoint;
     public float attackRange = 1f;
     public int attackDamage = 35;
+    public float slowdownTime = 0.3f;
     public float attackRate;
     public float comboRate;
 
@@ -24,48 +22,17 @@ public class PlayerCombat : MonoBehaviour
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Attack") && animator.GetBool("grounded") && !animator.GetBool("crouched")) {
-    
+            animator.SetBool("attacking", true);
             Attack();
+        } else if (Time.time > lastAttack + slowdownTime) {
+            animator.SetBool("attacking", false);
         }
-    }
-
-    void TakeDamage(float damage, float enemyX) {
-        // subtract damage
-        currentHealth -= damage;
-        animator.SetTrigger("Hurt");
-
-        // knocking enemy back
-        if (rb.position.x < enemyX) {
-            rb.AddForce(Vector2.left*15, ForceMode2D.Impulse);
-        } else {
-            rb.AddForce(Vector2.right*15, ForceMode2D.Impulse);
-        }
-
-        // check for death
-        if (currentHealth <= 0) {
-            playerDie();
-        }
-    }
-
-    void playerDie() {
-        //die animation
-        animator.SetBool("isDead", true);
-
-        // disable collider & script
-        Collider2D[] playerColliders = GetComponents<Collider2D>();
-
-        foreach (Collider2D part in playerColliders) {
-            part.enabled = false;
-        }
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        // this.enabled = false;
     }
 
     void Attack() {
@@ -92,11 +59,10 @@ public class PlayerCombat : MonoBehaviour
             if (pastCollider == null || pastCollider.gameObject != enemy.gameObject) {
 
 
-                enemy.GetComponent<Enemy>().TakeDamage(attackDamage, rb.position.x);
+                enemy.GetComponent<Health>().TakeDamage(attackDamage, rb.position.x);
             }
             pastCollider = enemy;
         }
-
 
     }
 

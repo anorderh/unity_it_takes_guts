@@ -19,7 +19,7 @@ public class player2DController : MonoBehaviour
     private bool ceilingFlag;
     public bool groundFlag;
     private bool hangFlag;
-    private bool hurtFlag;
+    private float pushableTimestamp = 0f;
     private float movement;
     private Vector3 m_Velocity = Vector3.zero;
     private Rigidbody2D _rigidbody;
@@ -113,7 +113,7 @@ public class player2DController : MonoBehaviour
         horMove = Mathf.Abs(Input.GetAxis("Horizontal"));
         verMove = Mathf.Abs(Input.GetAxis("Vertical"));
 
-        if (groundFlag && !(horMove > 0f || verMove > 0f) && hurtFlag) {
+        if (groundFlag && !(horMove > 0f || verMove > 0f) && Time.time > pushableTimestamp) {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         } else {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -134,6 +134,10 @@ public class player2DController : MonoBehaviour
                 _rigidbody.AddForce(new Vector2(0, (hangFlag ? jumpPower + 3 : jumpPower)), ForceMode2D.Impulse);
                 canJump = Time.time + 0.6f;
         }
+    }
+
+    public void Push() {
+        pushableTimestamp = Time.time + 1f;
     }
 
     void FixedUpdate () 

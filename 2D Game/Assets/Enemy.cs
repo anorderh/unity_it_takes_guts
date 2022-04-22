@@ -23,9 +23,12 @@ public class Enemy : MonoBehaviour
         animator.SetBool("grounded", tracking.isGrounded);
 
         // if too fast, slow down (falling ignored)
-        if (Mathf.Abs(rb.velocity.x) > 5f || rb.velocity.y > 5f) {
+        if (Mathf.Abs(rb.velocity.x) > 5f) {
             rb.AddForce(-rb.velocity/2);
+        } else if (rb.velocity.y > 5f) {
+            rb.AddForce(-rb.velocity*0.75f);
         }
+            
     }
 
 }

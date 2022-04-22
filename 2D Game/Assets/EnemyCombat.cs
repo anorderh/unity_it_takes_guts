@@ -8,7 +8,7 @@ public class EnemyCombat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public int attackDamage = 35;
-    public float attackRate = 0.5f;
+    public float attackRate = 10f;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -31,7 +31,6 @@ public class EnemyCombat : MonoBehaviour
     {
         if (health.Alive) {
             if (Physics2D.OverlapCircle(attackPoint.position, attackRange, damagableLayers) && (Time.time > attackTime)) {
-                    rb.velocity = (rb.velocity.x > 0 ? new Vector2(2f, rb.velocity.y) : new Vector2(-2f, rb.velocity.y));
                     animator.SetTrigger("attack");
             }
         } else {
@@ -57,10 +56,6 @@ public class EnemyCombat : MonoBehaviour
             }
         }
 
-    }
-
-    public void AttackCooldown() {
-         attackTime = Time.time + attackRate;
     }
 
     void OnDrawGizmosSelected() {

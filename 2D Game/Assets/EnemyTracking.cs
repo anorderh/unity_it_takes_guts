@@ -18,8 +18,10 @@ public class EnemyTracking : MonoBehaviour
     public float speedCap = 5f;
     public float nextWaypointDistance = 3f;
     public float jumpNodeHeightRequirement = 0.2f;
+    public float highJumpHeightRequirement = 0.8f;
     public float jumpModifier = 0.3f;
     public float jumpCheckOffset = 0.1f;
+    public float jumpPause = 0.1f;
 
     [Header("Custom Behavior")]
     public bool followEnabled = true;
@@ -27,10 +29,14 @@ public class EnemyTracking : MonoBehaviour
     public bool directionLookEnabled = true;
 
     private Path path;
+    private float jumpTimestamp;
     private float angle;
+    private float tempHeightReq;
     private int currentWaypoint = 0;
     public bool isGrounded;
     public bool ceilingAbove;
+    public bool hanging;
+    private Vector2 direction;
     private Vector2 force = Vector2.zero;
     Seeker seeker;
     Rigidbody2D rb;
@@ -78,16 +84,29 @@ public class EnemyTracking : MonoBehaviour
         ceilingAbove = Physics2D.OverlapCircle(ceilingPoint.position, 0.1f, whatIsGround);
 
         // direction && calculating force towards target
-        Vector2 direction = ((Vector2)target.transform.position - rb.position).normalized;
+        direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         force = direction * speed * Time.deltaTime;
 
+        // if hanging, always jump no matter relative heights
+        if (hanging) {
+            tempHeightReq = 0;
+        } else {
+            tempHeightReq = jumpNodeHeightRequirement;
+        }
+
         // check Jump
-        if (jumpEnabled && isGrounded && !ceilingAbove) {
-            if (direction.y > jumpNodeHeightRequirement) {
-                rb.AddForce(Vector2.up * speed * jumpModifier);
+        if (jumpEnabled && (isGrounded || hanging) && !ceilingAbove && (Time.time > jumpTimestamp)) {
+            if ((direction.y > tempHeightReq && Mathf.Abs(rb.velocity.x) < 3)) {
+                // slow down when jumping
+                rb.velocity = new Vector2(1, rb.velocity.y);
+
+
+                rb.AddForce(Vector2.up * speed * (direction.y > highJumpHeightRequirement ? jumpModifier*1.8f : jumpModifier));
+                jumpTimestamp = Time.time + jumpPause;
             }
         }
 
+        // adjusting force if grav. low for ramps, and applying
         force = rb.gravityScale > 1 ? force : force*0.8f;
         rb.AddForce(force);
 
@@ -140,6 +159,15 @@ public class EnemyTracking : MonoBehaviour
             rb.gravityScale = 3;
         }
     }
+
+    // bool StuckOnLedge() {
+    //     if (direction.y > 0 && Mathf.Approximately(direction.x, 0)) {
+    //         Debug.Log("stuck on ledge");
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
     void OnDrawGizmosSelected() {
         if (groundPoint == null) {

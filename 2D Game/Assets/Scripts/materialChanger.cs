@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class slowDown : MonoBehaviour
 {
+    [SerializeField] public int slowMass;
+    [SerializeField] public int normalMass;
 
     private Animator animator;
     private Rigidbody2D rb;
@@ -18,7 +20,9 @@ public class slowDown : MonoBehaviour
     void Update()
     {
         if (animator.GetBool("attacking")) {
-            rb.AddForce(-(rb.velocity*0.75f));
+            rb.mass = slowMass;
+        } else {
+            rb.mass = normalMass;
         }
     }
 }

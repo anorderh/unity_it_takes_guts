@@ -124,8 +124,9 @@ public class player2DController : MonoBehaviour
     }
 
     void isHanging() {
-        if (Physics2D.OverlapCircle(RWallCheck.position, 0.05f, whatIsGround) ||
-            Physics2D.OverlapCircle(LWallCheck.position, 0.05f, whatIsGround) ) {
+        if ((Physics2D.OverlapCircle(RWallCheck.position, 0.05f, whatIsGround) ||
+            Physics2D.OverlapCircle(LWallCheck.position, 0.05f, whatIsGround)) &&
+            !animator.GetBool("attacking") ) {
             hangFlag = true;
         } else {
             hangFlag = false;

@@ -11,6 +11,8 @@ public class player2DController : MonoBehaviour
     public Transform groundCheck;
     public Transform RWallCheck;
     public Transform LWallCheck;
+    public bool outOfBoundsFlag;
+    public Vector3 targetVelocity;
 
     private float verMove;
     private float horMove;
@@ -34,6 +36,7 @@ public class player2DController : MonoBehaviour
         groundFlag = true;
         ceilingFlag = false;
         hangFlag = false;
+        outOfBoundsFlag = false;
     }
 
     // Update is called once per frame
@@ -137,12 +140,14 @@ public class player2DController : MonoBehaviour
     }
 
     public void Push() {
-        pushableTimestamp = Time.time + 1f;
+        pushableTimestamp = Time.time + 0.5f;
     }
 
     void FixedUpdate () 
     {
-        Vector3 targetVelocity = new Vector2(movement, _rigidbody.velocity.y);
+        if (!outOfBoundsFlag) {
+            targetVelocity = new Vector2(movement, _rigidbody.velocity.y);
+        }
         _rigidbody.velocity = Vector3.SmoothDamp(_rigidbody.velocity, targetVelocity, ref m_Velocity, .1f);
 
         if (hangFlag && _rigidbody.velocity.y < 0) {

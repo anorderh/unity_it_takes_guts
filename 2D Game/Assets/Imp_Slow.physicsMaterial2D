@@ -6,6 +6,6 @@ PhysicsMaterial2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Imp_AI
-  friction: 0.4
+  m_Name: Imp_Slow
+  friction: 100
   bounciness: 0

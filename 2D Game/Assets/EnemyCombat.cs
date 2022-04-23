@@ -31,6 +31,7 @@ public class EnemyCombat : MonoBehaviour
     {
         if (health.Alive) {
             if (Physics2D.OverlapCircle(attackPoint.position, attackRange, damagableLayers) && (Time.time > attackTime)) {
+                    animator.SetBool("attacking", true);
                     animator.SetTrigger("attack");
             }
         } else {
@@ -56,7 +57,10 @@ public class EnemyCombat : MonoBehaviour
             }
         }
 
+        animator.SetBool("attacking", false);
+
     }
+
 
     void OnDrawGizmosSelected() {
         if (attackPoint == null) {

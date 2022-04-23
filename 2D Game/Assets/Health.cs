@@ -9,10 +9,12 @@ public class Health : MonoBehaviour
     public float maxHealth = 200f;
     public bool Alive = true;
     public float pushBack = 15;
+    public float currentHealth;
+    public HealthUpdate updateScript;
 
-    private float currentHealth;
     private Rigidbody2D rb;
     private Animator animator;
+    private bool isPlayer; 
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +22,14 @@ public class Health : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
+        isPlayer = CheckPlayer();
     }
 
     public void TakeDamage(float damage, float attackerX) {
+        if (isPlayer) {
+            updateScript.UpdateBar(currentHealth - damage, maxHealth);
+        }
+
         // subtract damage
         currentHealth -= damage;
         animator.SetTrigger("Hurt");
@@ -30,9 +37,9 @@ public class Health : MonoBehaviour
 
         // knocking enemy back
         if (rb.position.x < attackerX) {
-            rb.AddForce(Vector2.left*15, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.left*pushBack, ForceMode2D.Impulse);
         } else {
-            rb.AddForce(Vector2.right*15, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.right*pushBack, ForceMode2D.Impulse);
         }
 
         // check for death
@@ -55,13 +62,21 @@ public class Health : MonoBehaviour
         // freeze body in place
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
-        if (GetComponent<EnemyTracking>() != null) {
-            disableEnemy();
-        } else {
+        if (isPlayer) {
             disablePlayer();
+        } else {
+            disableEnemy();
         }
 
         this.enabled = false;
+    }
+
+    bool CheckPlayer() {
+        if (GetComponent<EnemyTracking>() != null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     void disableEnemy() {

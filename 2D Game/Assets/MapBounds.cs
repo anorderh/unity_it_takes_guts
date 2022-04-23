@@ -22,13 +22,12 @@ public class MapBounds : MonoBehaviour
 
     void Update() {
         quantity = map.OverlapCollider(filter, colliders);
-        Debug.Log(quantity);
 
         if (quantity < 2 && !player.outOfBoundsFlag) {
             ChangeAndFreezeDirection();
         } else if (quantity >= 2 && player.outOfBoundsFlag && Time.time > OOBTimestamp + OOBPeriod) {
             ReturnControl();
-        } else if (player.outOfBoundsFlag && (Time.time > OOBTimestamp + (OOBPeriod*5))) {
+        } else if (player.outOfBoundsFlag && (Time.time > OOBTimestamp + (OOBPeriod*5)) && !DeathCheck()) {
             Debug.Log("go to spawn");
             RevertSpawn();
         }
@@ -47,6 +46,10 @@ public class MapBounds : MonoBehaviour
     void RevertSpawn() {
         OOBTimestamp = Time.time;
         player.gameObject.GetComponent<Rigidbody2D>().position = spawnPoint.position;
+    }
+
+    bool DeathCheck() {
+        return player.gameObject.GetComponent<Animator>().GetBool("isDead");
     }
 
     // void OnDrawGizmosSelected() {

@@ -27,7 +27,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Attack") && animator.GetBool("grounded") && !animator.GetBool("crouched")) {
+        if (Input.GetButtonDown("Attack") && animator.GetBool("grounded") && !animator.GetBool("crouched") && !animator.GetBool("rolling")) {
             animator.SetBool("attacking", true);
             Attack();
         } else if (Time.time > lastAttack + slowdownTime) {

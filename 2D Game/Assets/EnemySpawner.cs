@@ -45,6 +45,8 @@ public class EnemySpawner : MonoBehaviour
                 enemiesSpawned++;
                 Destroy (portal, portalSpan);
 
+                Debug.Log(curEnemies);
+
                 // set spawnTime
                 spawnTime = Time.time;
             }

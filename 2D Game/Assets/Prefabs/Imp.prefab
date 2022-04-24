@@ -323,7 +323,7 @@ MonoBehaviour:
   nextWaypointDistance: 1.6
   jumpNodeHeightRequirement: 0.4
   highJumpHeightRequirement: 0.6
-  jumpModifier: 0.8
+  jumpModifier: 0.6
   jumpCheckOffset: 0.2
   jumpPause: 0.2
   followEnabled: 1

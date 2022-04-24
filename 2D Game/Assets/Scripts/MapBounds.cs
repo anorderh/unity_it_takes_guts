@@ -12,9 +12,11 @@ public class MapBounds : MonoBehaviour
     private ContactFilter2D filter = new ContactFilter2D();
     private Collider2D map;
     private Collider2D[] colliders = new Collider2D[8];
+    private bool pushFlag = false;
     private int quantity;
     private float OOBTimestamp = 0f;
     private float OOBPeriod = 0.5f;
+    private Vector2 storedVelocity;
 
     void Start() {
         map = GetComponent<Collider2D>();
@@ -36,12 +38,14 @@ public class MapBounds : MonoBehaviour
     }
 
     void ChangeAndFreezeDirection() {
-        player.targetVelocity *= -1;
+        storedVelocity = player.targetVelocity;
+        pushFlag = true;
         OOBTimestamp = Time.time;
         player.outOfBoundsFlag = true;
     }
 
     void ReturnControl() {
+        pushFlag = false;
         player.outOfBoundsFlag = false;
     }
 
@@ -52,6 +56,12 @@ public class MapBounds : MonoBehaviour
 
     bool DeathCheck() {
         return player.gameObject.GetComponent<Animator>().GetBool("isDead");
+    }
+
+    void FixedUpdate() {
+        if (pushFlag) {
+            player.targetVelocity = storedVelocity*-1;
+        }
     }
 
     // void OnDrawGizmosSelected() {

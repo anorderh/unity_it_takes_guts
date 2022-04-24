@@ -103,7 +103,7 @@ public class EnemyTracking : MonoBehaviour
                 rb.velocity = new Vector2(1, rb.velocity.y);
 
 
-                rb.AddForce(Vector2.up * speed * (direction.y > highJumpHeightRequirement ? jumpModifier*1.8f : jumpModifier));
+                rb.AddForce(Vector2.up * speed * (direction.y > highJumpHeightRequirement ? jumpModifier*1f : jumpModifier));
                 jumpTimestamp = Time.time + jumpPause;
             }
         }

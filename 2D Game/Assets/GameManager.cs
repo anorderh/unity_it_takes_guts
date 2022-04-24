@@ -11,12 +11,41 @@ public class GameManager : MonoBehaviour
 
     public int enemyCount;
     public GameUpdate update;
+    public bool gameOver;
+    public static bool Paused = false;
+    public GameObject pauseMenu;
+    public GameObject player;
 
     void Start() {
+        gameOver = false;
         update.SendMsg("Eliminate " + enemyCount + " Demon Imps.");
     }
 
+    void Update()
+    {
+        if (Input.GetButtonDown("Pause") && !gameOver) {
+            if (Paused) {
+                Resume();
+            } else {
+                Pause();
+            }
+        }
+    }
+
+    public void Resume() {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        Paused = false;
+    }
+
+    void Pause() {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        Paused = true;
+    }
+
     public void startDeath() {
+        gameOver = true;
         GameObject[] deathParts = GameObject.FindGameObjectsWithTag("DeathScreen");
 
         foreach(GameObject part in deathParts) {
@@ -25,6 +54,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void startVictory() {
+        gameOver = true;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject enemy in enemies) {
             Destroy(enemy, 0.1f);
@@ -36,7 +66,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Reload() {
+    public void PlayGame() {
+        Resume();
         SceneManager.LoadScene("Game");
+    }
+
+    public void MainMenu() {
+        Resume();
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Quit() {
+        Application.Quit();
     }
 }

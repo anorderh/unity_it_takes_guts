@@ -17,6 +17,7 @@ public class Health : MonoBehaviour
     private bool isPlayer;
     private EnemySpawner spawner;// only for enemies
     private KillCounter counter;
+    private int pushDirection = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -45,9 +46,9 @@ public class Health : MonoBehaviour
 
         // knocking enemy back
         if (rb.position.x < attackerX) {
-            rb.AddForce(Vector2.left*pushBack, ForceMode2D.Impulse);
+            pushDirection = -1;
         } else {
-            rb.AddForce(Vector2.right*pushBack, ForceMode2D.Impulse);
+            pushDirection = 1;
         }
 
         // check for death
@@ -101,5 +102,14 @@ public class Health : MonoBehaviour
         GetComponent<PlayerCombat>().enabled = false;
         GetComponent<player2DController>().enabled = false;
         GameObject.FindWithTag("GameManager").GetComponent<GameManager>().startDeath();
+    }
+
+    void FixedUpdate() {
+        if (pushDirection == 1) {
+            rb.AddForce(Vector2.right*pushBack, ForceMode2D.Impulse);
+        } else if (pushDirection == -1) {
+            rb.AddForce(Vector2.left*pushBack, ForceMode2D.Impulse);
+        }
+        pushDirection = 0;
     }
 }

@@ -22,13 +22,17 @@ public class Enemy : MonoBehaviour
         animator.SetFloat("x", Mathf.Abs(rb.velocity.x));
         animator.SetBool("grounded", tracking.isGrounded);
 
+        
+    }
+
+    void FixedUpdate() {
         // if too fast, slow down (falling ignored)
-        if (Mathf.Abs(rb.velocity.x) > 5f) {
-            rb.AddForce(-rb.velocity/2);
-        } else if (rb.velocity.y > 5f) {
-            rb.AddForce(-rb.velocity*0.75f);
+        if (Mathf.Abs(rb.velocity.x) > 6f) {
+            rb.velocity = new Vector2((rb.velocity.x > 0 ? 5 : -5), rb.velocity.y);
         }
-            
+        if (rb.velocity.y > 15f) {
+            rb.velocity = new Vector2(rb.velocity.x, 8);
+        }  
     }
 
 }

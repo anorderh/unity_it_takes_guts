@@ -23,7 +23,7 @@ public class player2DController : MonoBehaviour
     private bool ceilingFlag;
     public bool groundFlag;
     private bool hangFlag;
-    // private bool jumpFlag;
+    private bool jumpFlag;
     private float pushableTimestamp = 0f;
     private float rollTimestamp;
     private bool rollFlag;
@@ -42,6 +42,7 @@ public class player2DController : MonoBehaviour
         ceilingFlag = false;
         hangFlag = false;
         outOfBoundsFlag = false;
+        jumpFlag = false;
     }
 
     // Update is called once per frame
@@ -151,8 +152,7 @@ public class player2DController : MonoBehaviour
 
     void tryJump() {
         if (Time.time > canJump) {
-                _rigidbody.AddForce(new Vector2(0, (hangFlag ? jumpPower + 3 : jumpPower)), ForceMode2D.Impulse);
-                canJump = Time.time + 0.6f;
+                jumpFlag = true;
         }
     }
 
@@ -178,6 +178,12 @@ public class player2DController : MonoBehaviour
 
     void FixedUpdate () 
     {
+        if (jumpFlag) {
+            _rigidbody.AddForce(new Vector2(0, (hangFlag ? jumpPower + 3 : jumpPower)), ForceMode2D.Impulse);
+            canJump = Time.time + 0.6f;
+            jumpFlag = false;
+        }
+
         if (!outOfBoundsFlag) {
             targetVelocity = new Vector2(movement, _rigidbody.velocity.y);
         }

@@ -19,6 +19,7 @@ public class PlayerCombat : MonoBehaviour
     private float lastAttack = 0f;
     private bool attackFlag;
     private Rigidbody2D rb;
+    private GameManager manager;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -27,7 +28,9 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Attack") && animator.GetBool("grounded") && !animator.GetBool("crouched") && !animator.GetBool("rolling")) {
+        if (Input.GetButtonDown("Attack") && animator.GetBool("grounded") 
+            && !animator.GetBool("crouched") && !animator.GetBool("rolling")
+            && !GameManager.Paused) {
             animator.SetBool("attacking", true);
             Attack();
         } else if (Time.time > lastAttack + slowdownTime) {

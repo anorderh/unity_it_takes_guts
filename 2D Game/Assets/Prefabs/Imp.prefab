@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 4145943076753886526}
   m_Layer: 6
   m_Name: Imp
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -311,7 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7707c461a2c0054fbfdff0607bbcc83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 8419760517150183943, guid: 48fde5aeae0eefc48bdadc7a78354a7f, type: 3}
   activateDistance: 50
   pathUpdateSeconds: 0.5
   whatIsGround:

@@ -6,6 +6,7 @@ public class MapBounds : MonoBehaviour
 {
     public LayerMask layers;
     public player2DController player;
+    public Health playerHealth;
     public Transform spawnPoint;
 
     private ContactFilter2D filter = new ContactFilter2D();
@@ -23,7 +24,8 @@ public class MapBounds : MonoBehaviour
     void Update() {
         quantity = map.OverlapCollider(filter, colliders);
 
-        if (quantity < 2 && !player.outOfBoundsFlag) {
+        if (playerHealth.Alive && quantity < 2 && !player.outOfBoundsFlag) {
+            GameObject.FindWithTag("GameManager").GetComponent<GameManager>().update.SendMsg("The monsters are sure to follow.");
             ChangeAndFreezeDirection();
         } else if (quantity >= 2 && player.outOfBoundsFlag && Time.time > OOBTimestamp + OOBPeriod) {
             ReturnControl();

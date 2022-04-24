@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public int maxEnemyQuantity;
+    public int maxEnemyQuantity = 0; // 0 gives enemyControl to GameManager, disable script for no spawner
     public int enemiesAllowed = 3;
     public float enemyInterval = 0.5f;
     public float portalSpan = 1f;
@@ -23,6 +23,10 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        if (maxEnemyQuantity == 0) {
+            maxEnemyQuantity = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().enemyCount;
+        }
+
         AstarPath.active.data.graphs[0].GetNodes (node => {
                 if (node.Walkable) {
                     locations.Add((Vector3)node.position);
@@ -32,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Update() {
         if (enemiesSpawned < maxEnemyQuantity) {
-            if (CheckSpawnRoom() && curEnemies < enemiesAllowed && (Time.time > spawnTime + enemyInterval)) {
+            if (CheckSpawnRoom() && (Time.time > spawnTime + enemyInterval)) {
                 // finding valid position
                 Vector3 position = (Vector3) locations[Random.Range(0, locations.Count)];
 

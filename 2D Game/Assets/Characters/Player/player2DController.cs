@@ -23,6 +23,7 @@ public class player2DController : MonoBehaviour
     private bool ceilingFlag;
     public bool groundFlag;
     private bool hangFlag;
+    // private bool jumpFlag;
     private float pushableTimestamp = 0f;
     private float rollTimestamp;
     private bool rollFlag;

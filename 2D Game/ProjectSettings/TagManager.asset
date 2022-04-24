@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spawner
+  - KillCounter
+  - DeathScreen
+  - GameManager
+  - VictoryScreen
+  - Enemy
   layers:
   - Default
   - TransparentFX

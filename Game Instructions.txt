@@ -17,4 +17,4 @@ W NEAR A WALL - Wall hang *allows for wall climbing
 
 **NOTE**
 Game uses several free assets provided from itch.io and other sources. Please refer to bibliography in GDD
-or "Bibliography.txt" for references and credits.
+for references and credits.

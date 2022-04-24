@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
     private Animator animator;
     private bool isPlayer;
     private EnemySpawner spawner;// only for enemies
+    private KillCounter counter;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class Health : MonoBehaviour
 
         if (!isPlayer) {
             spawner = GameObject.FindWithTag("Spawner").GetComponent<EnemySpawner>();
+            counter = GameObject.FindWithTag("KillCounter").GetComponent<KillCounter>();
         }
 
     }
@@ -92,10 +94,12 @@ public class Health : MonoBehaviour
         Destroy(GetComponent<Seeker>());
         GetComponent<CanClimb>().enabled = false;
         spawner.EnemyDead();
+        counter.IncrementKill();
     }
 
     void disablePlayer() {
         GetComponent<PlayerCombat>().enabled = false;
         GetComponent<player2DController>().enabled = false;
+        GameObject.FindWithTag("GameManager").GetComponent<GameManager>().startDeath();
     }
 }

@@ -110,6 +110,9 @@ public class EnemyTracking : MonoBehaviour
 
         // adjusting force if grav. low for ramps, and applying
         force = rb.gravityScale > 1 ? force : force*0.8f;
+        if (animator.GetBool("attacking")) {
+            rb.AddForce(-(force/2));
+        }
         rb.AddForce(force);
 
 

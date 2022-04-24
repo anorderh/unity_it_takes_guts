@@ -6,7 +6,6 @@ using Pathfinding;
 public class EnemyTracking : MonoBehaviour
 {
      [Header("Pathfinding")]
-    public Transform target;
     public float activateDistance = 50f;
     public float pathUpdateSeconds = 0.5f;
     [SerializeField] public LayerMask whatIsGround;
@@ -24,10 +23,12 @@ public class EnemyTracking : MonoBehaviour
     public float jumpPause = 0.1f;
 
     [Header("Custom Behavior")]
+
     public bool followEnabled = true;
     public bool jumpEnabled = true;
     public bool directionLookEnabled = true;
 
+    private Transform target;
     private Path path;
     private float jumpTimestamp;
     private float angle;
@@ -48,6 +49,7 @@ public class EnemyTracking : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        target =  GameObject.FindWithTag("Player").transform;
 
         // speed cap
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, speedCap);

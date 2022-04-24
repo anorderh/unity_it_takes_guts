@@ -14,7 +14,8 @@ public class Health : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator animator;
-    private bool isPlayer; 
+    private bool isPlayer;
+    private EnemySpawner spawner;// only for enemies
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,11 @@ public class Health : MonoBehaviour
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
         isPlayer = CheckPlayer();
+
+        if (!isPlayer) {
+            spawner = GameObject.FindWithTag("Spawner").GetComponent<EnemySpawner>();
+        }
+
     }
 
     public void TakeDamage(float damage, float attackerX) {
@@ -83,7 +89,9 @@ public class Health : MonoBehaviour
         GetComponent<EnemyTracking>().enabled = false;
         GetComponent<EnemyCombat>().enabled = false;
         GetComponent<Enemy>().enabled = false;
-        GetComponent<Seeker>().enabled = false;
+        Destroy(GetComponent<Seeker>());
+        GetComponent<CanClimb>().enabled = false;
+        spawner.EnemyDead();
     }
 
     void disablePlayer() {

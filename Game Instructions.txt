@@ -1,0 +1,20 @@
+<--------IT TAKES GUTS--------->
+<------------------------------>
+IT TAKES GUTS is a 2D Wave-Survival Combat Platformer. The player plays as a Knight traveling through a 
+forest when Demon Imps appear from portals to start attacking. Levels are organized in Easy, Medium, Hard,
+and Endless.
+
+The game's objective is to eliminate all the Demons in the 3 normal modes, and in Endless, to survive as long
+as possible. 
+
+The controls are as follows:
+WASD - move around
+W - jump
+S - crouch
+SHIFT - roll *passes through enemies*
+LEFT CLICK - attack
+W NEAR A WALL - Wall hang *allows for wall climbing
+
+**NOTE**
+Game uses several free assets provided from itch.io and other sources. Please refer to bibliography in GDD
+or "Bibliography.txt" for references and credits.

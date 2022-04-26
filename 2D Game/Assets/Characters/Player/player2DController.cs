@@ -32,11 +32,13 @@ public class player2DController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Animator animator;
     private float canJump;
+    private PlayerAudioControl ac;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        ac = GetComponentInChildren<PlayerAudioControl>();
         crouchFlag = false;
         groundFlag = true;
         ceilingFlag = false;
@@ -153,6 +155,7 @@ public class player2DController : MonoBehaviour
     void tryJump() {
         if (Time.time > canJump) {
                 jumpFlag = true;
+                ac.PlayJump();
         }
     }
 
@@ -164,6 +167,7 @@ public class player2DController : MonoBehaviour
             Debug.Log(LayerMask.NameToLayer("Enemy"));
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), gameObject.layer, true);
             rollTimestamp = Time.time + rollDuration;
+            ac.PlayRoll();
         }
     }
 

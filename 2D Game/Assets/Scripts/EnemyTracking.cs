@@ -44,12 +44,14 @@ public class EnemyTracking : MonoBehaviour
     private Collider2D[] enemyColliders;
     private Vector3 startOffset;
     private Animator animator;
+    private EnemyAudioControl ac;
 
     void Start() {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         target =  GameObject.FindWithTag("Player").transform;
+        ac = GetComponentInChildren<EnemyAudioControl>();
 
         // speed cap
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, speedCap);
@@ -91,7 +93,7 @@ public class EnemyTracking : MonoBehaviour
 
         // if hanging, always jump no matter relative heights
         if (hanging) {
-            tempHeightReq = 0;
+            tempHeightReq = 0.1f;
         } else {
             tempHeightReq = jumpNodeHeightRequirement;
         }
@@ -105,6 +107,7 @@ public class EnemyTracking : MonoBehaviour
 
                 rb.AddForce(Vector2.up * speed * (direction.y > highJumpHeightRequirement ? jumpModifier*1f : jumpModifier));
                 jumpTimestamp = Time.time + jumpPause;
+
             }
         }
 

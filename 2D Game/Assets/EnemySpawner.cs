@@ -23,9 +23,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        if (maxEnemyQuantity == 0) {
-            maxEnemyQuantity = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().enemyCount;
-        }
+        maxEnemyQuantity = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().enemyCount;
+        enemiesAllowed = GameObject.FindWithTag("GameManager").GetComponent<GameManager>().enemiesPresent;
 
         AstarPath.active.data.graphs[0].GetNodes (node => {
                 if (node.Walkable) {

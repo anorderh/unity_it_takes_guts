@@ -20,9 +20,11 @@ public class PlayerCombat : MonoBehaviour
     private bool attackFlag;
     private Rigidbody2D rb;
     private GameManager manager;
+    private PlayerAudioControl ac;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        ac = GetComponentInChildren<PlayerAudioControl>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
         animator.SetTrigger("attack");
+        ac.PlaySwing();
 
         //detect enemies
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -61,7 +64,7 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in enemiesHit) {
             if (pastCollider == null || pastCollider.gameObject != enemy.gameObject) {
 
-
+                ac.PlayHit();
                 enemy.GetComponent<Health>().TakeDamage(attackDamage, rb.position.x);
             }
             pastCollider = enemy;

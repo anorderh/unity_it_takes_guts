@@ -14,6 +14,7 @@ public class EnemyCombat : MonoBehaviour
     private Rigidbody2D rb;
     private Health health;
     private float attackTime;
+    private EnemyAudioControl ac;
     // private bool attacking = false;
 
 
@@ -23,6 +24,8 @@ public class EnemyCombat : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         health = GetComponent<Health>();
+        ac = GetComponentInChildren<EnemyAudioControl>();
+
         attackTime = 0f;
     }
 
@@ -41,6 +44,7 @@ public class EnemyCombat : MonoBehaviour
 
     public void Attack() {
         Collider2D[] thingsHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, damagableLayers);
+        ac.PlaySwing();
 
         if (thingsHit.Length > 0) {
             Collider2D pastCollider = null;

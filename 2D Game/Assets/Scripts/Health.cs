@@ -18,28 +18,41 @@ public class Health : MonoBehaviour
     private EnemySpawner spawner;// only for enemies
     private KillCounter counter;
     private int pushDirection = 0;
+    private PlayerAudioControl ac;
+    private EnemyAudioControl eac;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        ac = GetComponentInChildren<PlayerAudioControl>();
         currentHealth = maxHealth;
         isPlayer = CheckPlayer();
 
         if (!isPlayer) {
             spawner = GameObject.FindWithTag("Spawner").GetComponent<EnemySpawner>();
             counter = GameObject.FindWithTag("KillCounter").GetComponent<KillCounter>();
+            eac = GetComponentInChildren<EnemyAudioControl>();
+        } else {
+            ac = GetComponentInChildren<PlayerAudioControl>();
         }
 
     }
 
     public void TakeDamage(float damage, float attackerX) {
+        // updating health indicators for players and enemy
         if (isPlayer) {
             updateScript.UpdateBar(currentHealth - damage, maxHealth);
+            ac.PlayHurt();
+        } else {
+            if (Random.Range(0,2) == 0) {
+                eac.PlayMood(currentHealth, maxHealth);
+            } else {
+                eac.PlayHurt();
+            }
         }
 
-        // subtract damage
         currentHealth -= damage;
         animator.SetTrigger("Hurt");
         Debug.Log("health: " + currentHealth + "/" + maxHealth);
@@ -72,8 +85,10 @@ public class Health : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         if (isPlayer) {
+            ac.PlayDead();
             disablePlayer();
         } else {
+            eac.PlayDead();
             disableEnemy();
         }
 

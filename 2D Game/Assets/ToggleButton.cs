@@ -5,34 +5,30 @@ using UnityEngine.UI;
 
 public class ToggleButton : MonoBehaviour
 {
-    public GameObject OnSprite;
-    public GameObject OffSprite;
+    public Image On;
+    public Image Off;
     public bool status = true;
-    public AudioSource myBrotherMusic;
     
     private GameManager manager;
 
     void Start() {
         manager =  GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-        myBrotherMusic = GetComponent<AudioSource>();
         PushToggle();
     }
 
     public void PushToggle() {
         if (!status) {
-            myBrotherMusic.Play();
-            myBrotherMusic.Pause();
-            manager.sources.Add(myBrotherMusic);
+            manager.StartMyBrother();
 
             status = true;
-            OffSprite.SetActive(false);
-            OnSprite.SetActive(true);
+            Off.enabled = false;
+            On.enabled = true;
         } else {
-            myBrotherMusic.Stop();
+            manager.StopMyBrother();
 
             status = false;
-            OffSprite.SetActive(true);
-            OnSprite.SetActive(false);
+            Off.enabled = true;
+            On.enabled = false;
         }
     }
 }

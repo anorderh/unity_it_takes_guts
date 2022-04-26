@@ -17,11 +17,12 @@ public class GameManager : MonoBehaviour
     public static bool Paused = false;
     public GameObject pauseMenu;
     public GameObject player;
-    public List<AudioSource> sources;
+    private List<AudioSource> sources;
 
     [SerializeField] private AudioSource menuClick;
     [SerializeField] private AudioSource loseSFX;
     [SerializeField] private AudioSource winSFX;
+    [SerializeField] private AudioSource myBrotherSFX;
 
     void Start() {
         gameOver = false;
@@ -76,6 +77,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void startDeath() {
+        if (myBrotherSFX.isPlaying) {
+            myBrotherSFX.Stop();
+        }
+        
         loseSFX.Play();
         gameOver = true;
         GameObject[] deathParts = GameObject.FindGameObjectsWithTag("DeathScreen");
@@ -86,6 +91,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void startVictory() {
+        if (myBrotherSFX.isPlaying) {
+            myBrotherSFX.Stop();
+        }
+
         winSFX.Play();
         gameOver = true;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -97,6 +106,15 @@ public class GameManager : MonoBehaviour
         foreach(GameObject part in victoryParts) {
             part.GetComponent<HideComponent>().RevealComponent();
         }
+    }
+
+    public void StartMyBrother() {
+        myBrotherSFX.Play();
+        myBrotherSFX.Pause();
+    }
+
+    public void StopMyBrother() {
+        myBrotherSFX.Stop();
     }
 
     public void PlayGame() {

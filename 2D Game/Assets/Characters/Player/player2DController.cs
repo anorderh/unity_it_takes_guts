@@ -33,12 +33,14 @@ public class player2DController : MonoBehaviour
     private Animator animator;
     private float canJump;
     private PlayerAudioControl ac;
+    private GameManager manager;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         ac = GetComponentInChildren<PlayerAudioControl>();
+
         crouchFlag = false;
         groundFlag = true;
         ceilingFlag = false;
@@ -50,59 +52,62 @@ public class player2DController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // flags
-        isStill();
-        isGrounded();
-        ceilingAbove();
-        isCrouched();
-        isHanging();
+        // if game paused, no player input allowed
+        if (!GameManager.Paused) {
+            // flags
+            isStill();
+            isGrounded();
+            ceilingAbove();
+            isCrouched();
+            isHanging();
 
-        
-        // movement speed
-        if (!rollFlag || Time.time > rollTimestamp) {
-            rollFlag = false;
+            
+            // movement speed
+            if (!rollFlag || Time.time > rollTimestamp) {
+                rollFlag = false;
 
-            if (crouchFlag) {
-                movement = Input.GetAxisRaw("Horizontal") * (speed/3);
-            } else if (hangFlag) {
-                movement = Input.GetAxisRaw("Horizontal") * (speed/5);
-            } else if (animator.GetBool("attacking") && groundFlag) {
-                movement = Input.GetAxisRaw("Horizontal") * (speed/8);
-            } else {
-                movement = Input.GetAxisRaw("Horizontal") * speed;
+                if (crouchFlag) {
+                    movement = Input.GetAxisRaw("Horizontal") * (speed/3);
+                } else if (hangFlag) {
+                    movement = Input.GetAxisRaw("Horizontal") * (speed/5);
+                } else if (animator.GetBool("attacking") && groundFlag) {
+                    movement = Input.GetAxisRaw("Horizontal") * (speed/8);
+                } else {
+                    movement = Input.GetAxisRaw("Horizontal") * speed;
+                }
+                movement *= Time.fixedDeltaTime;
             }
-            movement *= Time.fixedDeltaTime;
-        }
 
-        // disabling Stand collider if crouch detected or rolling
-        standing.enabled = rollFlag ? false : !animator.GetBool("crouched");
+            // disabling Stand collider if crouch detected or rolling
+            standing.enabled = rollFlag ? false : !animator.GetBool("crouched");
 
-        // updating animations
-        animator.SetFloat("speed", Mathf.Abs(movement));
-        animator.SetFloat("y", _rigidbody.velocity.y);
-        if (crouchFlag != animator.GetBool("crouched")) {
-            animator.SetBool("crouched", crouchFlag);
-        }
-        if (groundFlag != animator.GetBool("grounded")) {
-            animator.SetBool("grounded", groundFlag);
-        }
-        if (ceilingFlag != animator.GetBool("ceilingAbove")) {
-            animator.SetBool("ceilingAbove", ceilingFlag);
-        }
-        if (hangFlag != animator.GetBool("hanging")) {
-            animator.SetBool("hanging", hangFlag);
-        }
-        if (rollFlag != animator.GetBool("rolling")) {
-            animator.SetBool("rolling", rollFlag);
-        }
+            // updating animations
+            animator.SetFloat("speed", Mathf.Abs(movement));
+            animator.SetFloat("y", _rigidbody.velocity.y);
+            if (crouchFlag != animator.GetBool("crouched")) {
+                animator.SetBool("crouched", crouchFlag);
+            }
+            if (groundFlag != animator.GetBool("grounded")) {
+                animator.SetBool("grounded", groundFlag);
+            }
+            if (ceilingFlag != animator.GetBool("ceilingAbove")) {
+                animator.SetBool("ceilingAbove", ceilingFlag);
+            }
+            if (hangFlag != animator.GetBool("hanging")) {
+                animator.SetBool("hanging", hangFlag);
+            }
+            if (rollFlag != animator.GetBool("rolling")) {
+                animator.SetBool("rolling", rollFlag);
+            }
 
-        // checking & implementing jump
-        if ((groundFlag || hangFlag) && Input.GetButtonDown("Jump"))  {
-            tryJump();
-        }
+            // checking & implementing jump
+            if ((groundFlag || hangFlag) && Input.GetButtonDown("Jump"))  {
+                tryJump();
+            }
 
-        if (!animator.GetBool("attacking") && !crouchFlag && groundFlag && Input.GetButtonDown("Roll") && !Mathf.Approximately(movement, 0)) {
-            tryRoll();
+            if (!animator.GetBool("attacking") && !crouchFlag && groundFlag && Input.GetButtonDown("Roll") && !Mathf.Approximately(movement, 0)) {
+                tryRoll();
+            }
         }
     }
 

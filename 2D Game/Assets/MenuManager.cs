@@ -46,6 +46,10 @@ public class MenuManager : MonoBehaviour
         savedSettings.width = newWidth;
     }
 
+    public void LoadCredits() {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void SetHeight(int newHeight) {
         savedSettings.height = newHeight;
     }

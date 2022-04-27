@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2835620027078938714}
   - component: {fileID: 187567291958672191}
   - component: {fileID: 5038351317508499461}
+  - component: {fileID: 3631310308925573519}
   m_Layer: 0
   m_Name: EnemyAudio
   m_TagString: Untagged
@@ -731,6 +732,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3631310308925573519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3656971610467790755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c9848a759c5c441b807e599ecaa6cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 0}
 --- !u!1 &4145943076289949012
 GameObject:
   m_ObjectHideFlags: 0

@@ -202,7 +202,8 @@ public class player2DController : MonoBehaviour
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _rigidbody.velocity.y/2);
         } 
 
-        if (!Mathf.Approximately(0, movement)) {
+
+        if (!Mathf.Approximately(0f,movement)) {
             transform.rotation = movement >= 0 ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
         }
     }

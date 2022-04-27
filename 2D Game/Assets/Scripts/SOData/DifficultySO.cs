@@ -6,7 +6,7 @@ using UnityEngine;
 public class DifficultySO : ScriptableObject
 {
     [SerializeField]
-    private int[] enemyInfo;
+    private int[] enemyInfo = new int[]{10, 3};
 
     public int[] inputEnemies {
         set {enemyInfo = value;}

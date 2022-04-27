@@ -11,10 +11,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3BD99DA7-BD93-6366-344B-4F2C33A41684}</ProjectGuid>
+    <ProjectGuid>{6B7E3D39-9DAD-0882-26ED-9F7891A42FF7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>AstarPathfindingProject</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -47,69 +47,125 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CanClimb.cs" />
-     <Compile Include="Assets\Scripts\Enemy.cs" />
-     <Compile Include="Assets\ToggleButton.cs" />
-     <Compile Include="Assets\GameUpdate.cs" />
-     <Compile Include="Assets\Scripts\HealthUpdate.cs" />
-     <Compile Include="Assets\MenuManager.cs" />
-     <Compile Include="Assets\Scripts\Health.cs" />
-     <Compile Include="Assets\TextChange.cs" />
-     <Compile Include="Assets\EnemyAudioControl.cs" />
-     <Compile Include="Assets\Scripts\EnemyCombat.cs" />
-     <Compile Include="Assets\Scripts\EnemyTracking.cs" />
-     <Compile Include="Assets\Scripts\AStarIgnore.cs" />
-     <Compile Include="Assets\Scripts\PlayerCombat.cs" />
-     <Compile Include="Assets\EnemySpawner.cs" />
-     <Compile Include="Assets\PauseCenter.cs" />
-     <Compile Include="Assets\KillCounter.cs" />
-     <Compile Include="Assets\PlayerAudioControl.cs" />
-     <Compile Include="Assets\Characters\Player\player2DController.cs" />
-     <Compile Include="Assets\Scripts\materialChanger.cs" />
-     <Compile Include="Assets\Scripts\EnemySlowDown.cs" />
-     <Compile Include="Assets\Scripts\MapBounds.cs" />
-     <Compile Include="Assets\HideComponent.cs" />
-     <Compile Include="Assets\Scripts\moveTest.cs" />
-     <Compile Include="Assets\GameManager.cs" />
-     <Compile Include="Assets\Scripts\DrawGizmo.cs" />
-     <Compile Include="Assets\Scripts\SOData\ColorSO.cs" />
-     <Compile Include="Assets\Scripts\SOData\NameSO.cs" />
-     <Compile Include="Assets\SetPauseName.cs" />
-     <Compile Include="Assets\DeriveColor.cs" />
-     <Compile Include="Assets\DifficultyToggle.cs" />
-     <Compile Include="Assets\Scripts\SOData\DifficultySO.cs" />
-     <Compile Include="Assets\PlayerColor.cs" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-     <None Include="Assets\Free Assets\Free Pixel Art Forest\Free Pixel Art Forest\Contact.txt" />
-     <None Include="Assets\Free Assets\FantasyWarrior\Fantasy Warrior\License.txt" />
-     <None Include="Assets\Free Assets\Legacy-Dungeon_V0.2\Final\release.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-     <None Include="Assets\Free Assets\Free Pixel Art Forest\Free Pixel Art Forest\license.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-     <None Include="Assets\Free Assets\CrystalWorld_v1.1\public-license.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-     <None Include="Assets\Free Assets\stringstar fields\!readme!.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-     <None Include="Assets\Free Assets\Free Pixel Art Forest\Free Pixel Art Forest\readme.txt" />
-     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <None Include="Assets\Free Assets\Legacy-Dungeon_V0.2\Final\Autor_note.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-     <None Include="Assets\Free Assets\Pixel Effects\README.txt" />
-     <None Include="Assets\Free Assets\Free Pixel Art Forest\Free Pixel Art Forest\changelog.txt" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\AI\AILerp.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\NavMeshRenderer.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\GraphUpdateScene.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Serialization\SimpleZipReplacement.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\QuadtreeGraph.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\AstarParallel.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Navmesh\NavmeshUpdates.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\Int3.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\TurnBased\BlockManager.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\PackageTools\UniqueComponentAttribute.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\GridLookup.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\AstarPath.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\BBTree.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\AutoRepathPolicy.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\AstarChecksum.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\EuclideanEmbedding.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Modifiers\SimpleSmoothModifier.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\Example12_Procedural\ProceduralWorld.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Path.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\PointKDTree.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Legacy\Editor\LegacyAIPathEditor.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Modifiers\AlternativePath.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\NavmeshTile.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\ExampleScripts\DoorController.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\GraphModifier.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\ThreadControlQueue.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\PackageTools\EnumFlagAttribute.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Legacy\Editor\LegacyRVOControllerEditor.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\DynamicGridObstacle.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\UnityReferenceHelper.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\AI\IAstarAI.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\NodeLink3.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Legacy\LegacyAIPath.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\NodeClasses\GridNodeBase.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Serialization\JsonConverters.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\PathUtilities.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Legacy\Editor\LegacyRichAIEditor.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\ExampleScripts\ObjectPlacer.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Behaviors\AIDestinationSetter.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\GridGenerator.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\StackPool.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\WindowsStoreCompatibility.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Navmesh\RelevantGraphSurface.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Serialization\TinyJson.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\RetainedGizmos.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Serialization\SimpleJsonReplacement.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Modifiers\RaycastModifier.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\ExampleScripts\MineBotAnimation.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\PathProcessor.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\ExampleScripts\AstarSmoothFollow2.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\AstarDebugger.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\ExampleScripts\SnapToNode.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Legacy\MiscLegacy.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\MovementUtilities.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\NodeLink.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\NodeClasses\PointNode.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\WorkItemProcessor.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\AstarData.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\Draw.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\PointGenerator.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\NodeClasses\GridNode.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\NavmeshBase.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\AstarMemory.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\Funnel.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\DotNetReplacements.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\AI\NavmeshController.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\EditorResourceHelper.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\NodeClasses\TriangleMeshNode.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\ExampleScripts\TargetMover.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\ListPool.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\GraphEditorBase.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\BinaryHeap.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\HierarchicalGraph.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\ArrayPool.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Legacy\Editor\LegacyEditorHelper.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\AnimationLink.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Nodes\GraphNode.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\PathInterpolator.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\NodeLink2.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\AstarMath.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\ProfileHelper.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\PathPool.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\GraphUpdateUtilities.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\ExampleScripts\MineBotAI.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\ProceduralGridMover.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\GraphTransform.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\AI\AIPath.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\GraphUpdateShape.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Modifiers\StartEndModifier.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\AI\TurnBasedAI.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Modifiers\Modifiers.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\GraphUtilities.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\AstarProfiler.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\ObjectPool.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Serialization\JsonSerializer.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Utilities\GraphGizmoHelper.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Behaviors\Patrol.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\PackageTools\VersionedMonoBehaviour.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\NavMeshGenerator.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Modifiers\FunnelModifier.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\AI\AIBase.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\AI\Seeker.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\GraphUpdateProcessor.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\Base.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Generators\Utilities\ObjImporter.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Pathfinders\ABPath.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\PathHandler.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\PathReturnQueue.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\Core\astarclasses.cs" />
+     <Compile Include="Assets\AstarPathfindingProject\TurnBased\SingleNodeBlocker.cs" />
+     <None Include="Assets\AstarPathfindingProject\ExampleScenes\_Example Scenes.txt" />
+     <None Include="Assets\AstarPathfindingProject\Readme.txt" />
+     <None Include="Assets\AstarPathfindingProject\Plugins\DotNetZip\DotNetZipLicense.txt" />
+     <None Include="Assets\AstarPathfindingProject\Readme_upgrading.txt" />
+     <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\Projector Light.shader" />
+     <None Include="Assets\AstarPathfindingProject\link.xml" />
+     <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
+     <None Include="Assets\AstarPathfindingProject\Plugins\dependencies.txt" />
+     <None Include="Assets\AstarPathfindingProject\AstarPathfindingProject.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -332,8 +388,29 @@
  <Reference Include="UnityEditor.UnityConnectModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Plastic.Newtonsoft.Json">
+ <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/PackageCache/com.unity.collab-proxy@1.15.7/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Plastic.Antlr3.Runtime">
+ <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/PackageCache/com.unity.collab-proxy@1.15.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="unityplastic">
+ <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/PackageCache/com.unity.collab-proxy@1.15.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+ </Reference>
  <Reference Include="Pathfinding.Ionic.Zip.Reduced">
  <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ </Reference>
+ <Reference Include="log4netPlastic">
+ <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/PackageCache/com.unity.collab-proxy@1.15.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
@@ -683,119 +760,14 @@
  <Reference Include="System.Xml.Serialization">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
  </Reference>
- <Reference Include="Unity.2D.Animation.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEngineBridge.001">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VSCode.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.PixelPerfect">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
- </Reference>
- <Reference Include="PsdPlugin">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.IK.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Psdimporter.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Path.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEditorBridge.001">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.PlasticSCM.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Mathematics">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.IK.Runtime">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Cinemachine">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.cinemachine.editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Animation.Triangle.Runtime">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Animation.Runtime">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.PixelPerfect.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Mathematics.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Common.Runtime">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.SpriteShape.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Common.Editor">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.SpriteShape.Runtime">
- <HintPath>C:/Users/antho/Unity Projects/2D Game Repo/2D Game/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
- </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{E0EA9E72-6C02-919E-2F87-B224C91C238E}</Project>
-      <Name>PackageToolsEditor</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{6B7E3D39-9DAD-0882-26ED-9F7891A42FF7}</Project>
-      <Name>AstarPathfindingProject</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{F7A1F93A-B5F3-24A7-BAEE-B51536D39B21}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

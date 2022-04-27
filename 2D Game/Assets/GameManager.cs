@@ -17,17 +17,29 @@ public class GameManager : MonoBehaviour
     public static bool Paused = false;
     public GameObject pauseMenu;
     public GameObject player;
+
     private List<AudioSource> sources;
 
     [SerializeField] private AudioSource menuClick;
     [SerializeField] private AudioSource loseSFX;
     [SerializeField] private AudioSource winSFX;
     [SerializeField] private AudioSource myBrotherSFX;
+    [SerializeField] private ColorSO savedColor;
+    [SerializeField] private NameSO savedName;
+
 
     void Start() {
+        // initialize game start
         gameOver = false;
         update.SendMsg("Eliminate " + enemyCount + " Demon Imps.");
         sources = new List<AudioSource>(FindObjectsOfType<AudioSource>());
+
+        // // init player
+        // savedColor.hue = 0.5f;
+        player.GetComponent<SpriteRenderer>().material.color = Color.HSVToRGB(savedColor.Hue, savedColor.Saturation, savedColor.Brightness);
+
+        // init pause menu
+        pauseMenu.GetComponentInChildren<SetPauseName>().SetName(savedName.playerName);
     }
 
     void Update()

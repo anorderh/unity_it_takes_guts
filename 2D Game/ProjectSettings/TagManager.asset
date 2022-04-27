@@ -11,6 +11,9 @@ TagManager:
   - VictoryScreen
   - Enemy
   - MusicToggle
+  - MainMenu
+  - GameSelect
+  - Settings
   layers:
   - Default
   - TransparentFX

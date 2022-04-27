@@ -7,13 +7,13 @@ public class ToggleButton : MonoBehaviour
 {
     public Image On;
     public Image Off;
-    public bool status = true;
+    public bool status = false;
     
     private GameManager manager;
 
     void Start() {
         manager =  GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-        PushToggle();
+        On.enabled = false;
     }
 
     public void PushToggle() {

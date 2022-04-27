@@ -26,7 +26,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource myBrotherSFX;
     [SerializeField] private ColorSO savedColor;
     [SerializeField] private NameSO savedName;
+    [SerializeField] private DifficultySO savedDifficulty;
+    [SerializeField] private SettingsSO savedSettings;
 
+    void Awake() {
+        enemyCount = savedDifficulty.inputEnemies[0];
+        enemiesPresent = savedDifficulty.inputEnemies[1];
+    }
 
     void Start() {
         // initialize game start
@@ -47,10 +53,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("Pause") && !gameOver) {
             PlayClick();
             if (Paused) {
-                ReleaseAudio();
                 Resume();
             } else {
-                StopAudio();
                 Pause();
             }
         }
@@ -65,12 +69,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void Resume() {
+        ReleaseAudio();
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         Paused = false;
     }
 
     void Pause() {
+        StopAudio();
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         Paused = true;

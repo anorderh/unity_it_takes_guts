@@ -11,15 +11,26 @@ public class MenuManager : MonoBehaviour
     private Animator selectAnimator;
     [SerializeField]
     private Animator settingsAnimator;
+    [SerializeField]
+    private AudioSource clickSFX;
 
-    private int width = 1600;
-    private int height = 900;
+    [SerializeField] private ColorSO savedColor;
+    [SerializeField] private NameSO savedName;
+    [SerializeField] private DifficultySO savedDifficulty;
+    [SerializeField] private SettingsSO savedSettings;
 
     // Start is called before the first frame update
     void Start()
     {
+        ResetPlayerData();
         UpdateRes();
         ChangeMenuState(true);
+    }
+
+    public void ResetPlayerData() {
+        savedColor.Reset();
+        savedName.Reset();
+        savedDifficulty.Reset();
     }
 
     public void PlayGame() {
@@ -27,19 +38,24 @@ public class MenuManager : MonoBehaviour
     }
 
     public void Quit() {
+        savedSettings.Reset();
         Application.Quit();
     }
 
     public void SetWidth(int newWidth) {
-        width = newWidth;
+        savedSettings.width = newWidth;
     }
 
     public void SetHeight(int newHeight) {
-        height = newHeight;
+        savedSettings.height = newHeight;
     }
 
     public void UpdateRes() {
-        Screen.SetResolution(width, height, false);
+        Screen.SetResolution(savedSettings.Resolution[0], savedSettings.Resolution[1], false);
+    }
+
+    public void PlayClick() {
+        clickSFX.Play();
     }
 
     public void ChangeMenuState(bool state) {

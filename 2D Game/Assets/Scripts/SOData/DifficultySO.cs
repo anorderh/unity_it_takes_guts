@@ -12,4 +12,8 @@ public class DifficultySO : ScriptableObject
         set {enemyInfo = value;}
         get {return enemyInfo;}
     }
+
+    public void Reset() {
+        enemyInfo = new int[]{10, 3};
+    }
 }

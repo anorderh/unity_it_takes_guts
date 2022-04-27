@@ -10,8 +10,10 @@ public class MusicDisplay : MonoBehaviour
     [SerializeField]
     private SettingsSO settings;
 
-    private TMP_Text tmptext;
+    [SerializeField]
     private TMP_Text valueHeader;
+
+    private TMP_Text tmptext;
     private float curMusic = 1f;
 
     void Start() {

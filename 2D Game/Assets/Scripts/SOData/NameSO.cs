@@ -12,4 +12,8 @@ public class NameSO : ScriptableObject
         set { _name = value; }
         get { return _name;}
     }
+
+    public void Reset() {
+        _name = "Guts";
+    }
 }

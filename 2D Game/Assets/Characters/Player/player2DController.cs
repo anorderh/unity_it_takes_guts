@@ -203,7 +203,7 @@ public class player2DController : MonoBehaviour
         } 
 
         if (!Mathf.Approximately(0, movement)) {
-            transform.rotation = movement > 0 ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
+            transform.rotation = movement >= 0 ? Quaternion.identity : Quaternion.Euler(0, 180, 0);
         }
     }
 

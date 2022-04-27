@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private NameSO savedName;
     [SerializeField] private DifficultySO savedDifficulty;
     [SerializeField] private SettingsSO savedSettings;
+    [SerializeField] private SetPauseName pauseName;
 
     void Awake() {
         enemyCount = savedDifficulty.inputEnemies[0];
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         gameOver = false;
         update.SendMsg("Eliminate " + enemyCount + " Demon Imps.");
         sources = new List<AudioSource>(FindObjectsOfType<AudioSource>());
+        pauseName.SetName(savedName.playerName);
 
         // // init player
         // savedColor.hue = 0.5f;

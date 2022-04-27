@@ -10,14 +10,10 @@ public class ColorSO : ScriptableObject
     private float _saturation = 0f;
     private float _brightness = 1f;
 
-    public float hue {
+    public float[] color {
         set {
-            if (value == 0) {
-                _saturation = 0f;
-            } else {
-                _saturation = 0.4f;
-                _hue = value;
-            }
+            _hue = value[0];
+            _saturation = value[1];
         }
     }
 
@@ -31,5 +27,10 @@ public class ColorSO : ScriptableObject
 
     public float Brightness {
         get {return _brightness;}
+    }
+
+    public void Reset() {
+        _hue = 0f;
+        _saturation = 0f;
     }
 }

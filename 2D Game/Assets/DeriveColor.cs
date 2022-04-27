@@ -15,7 +15,7 @@ public class DeriveColor : MonoBehaviour
 
     public void ChooseHue() {
         Color.RGBToHSV(colorBlock.color, out hue, out saturation, out brightness);
-        colorSO.hue = hue;
+        colorSO.color = new float[]{hue, saturation};
         GameObject.FindWithTag("Player").GetComponent<PlayerColor>().Change(Color.HSVToRGB(hue, saturation, brightness));
     }
 }

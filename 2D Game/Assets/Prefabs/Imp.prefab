@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 4145943076753886520}
   - component: {fileID: 4145943076753886521}
   - component: {fileID: 4145943076753886527}
-  - component: {fileID: 4145943076753886526}
+  - component: {fileID: 2063999323342126734}
   m_Layer: 6
   m_Name: Imp
   m_TagString: Enemy
@@ -1117,18 +1117,19 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &4145943076753886526
+--- !u!114 &2063999323342126734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4145943076753886540}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57694dcb61a270a4c87064a82b3b2405, type: 3}
+  m_Script: {fileID: 11500000, guid: b2c9848a759c5c441b807e599ecaa6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 7a510a02f240bc0408bc370a9458e08f, type: 2}
 --- !u!1 &4145943076777166686
 GameObject:
   m_ObjectHideFlags: 0

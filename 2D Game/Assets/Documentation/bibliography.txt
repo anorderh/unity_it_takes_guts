@@ -1,0 +1,245 @@
+2D Game CS 583 Bibliography
+
+
+A* Pathfinding Project
+https://arongranberg.com/astar/
+
+BRACKEYS ON YOUTUBE
+Melee Combat : https://www.youtube.com/watch?v=sPiVz1k-fEs&ab_channel=Brackeys
+2D Animation: https://www.youtube.com/watch?v=hkaysu1Z-N8&ab_channel=Brackeys
+Tilemaps in Unity: https://www.youtube.com/watch?v=ryISV_nH8qw&ab_channel=Brackeys
+Cinemachine Camera in Unity: https://www.youtube.com/watch?v=2jTY11Am0Ig&list=PLPV2KyIb3jR6TFcFuzI2bB7TMNIIBpKMQ&index=5&ab_channel=Brackeys
+“How to make a 2D Game” Playlist: https://www.youtube.com/watch?v=on9nwbZngyw&list=PLPV2KyIb3jR6TFcFuzI2bB7TMNIIBpKMQ&ab_channel=Brackeys
+Unity Timeline
+https://www.youtube.com/watch?v=G_uBFM3YUF4&ab_channel=Brackeys
+2D Lights in Unity
+https://www.youtube.com/watch?v=nkgGyO9VG54&t=1s&ab_channel=Brackeys
+2D Pathfinding
+https://www.youtube.com/watch?v=jvtFUfJ6CP8&ab_channel=Brackeys
+Unity Healthbar
+https://www.youtube.com/watch?v=BLfNP4Sc_iA&ab_channel=Brackeys
+Game Over in Unity
+https://www.youtube.com/watch?v=VbZ9_C4-Qbo&ab_channel=Brackeys
+Awesome Scene Transitions
+https://www.youtube.com/watch?v=CE9VOZivb3I&ab_channel=Brackeys
+START MENU in Unity
+https://www.youtube.com/watch?v=zc8ac_qUXQY&ab_channel=Brackeys
+How to Build / Export your Game in Unity
+https://www.youtube.com/watch?v=7nxKAtxGSn8&ab_channel=Brackeys
+PAUSE MENU in Unity
+https://www.youtube.com/watch?v=JivuXdrIHK0&ab_channel=Brackeys
+Introduction to Audio
+https://www.youtube.com/watch?v=6OT43pvUyfY&ab_channel=Brackeys
+
+
+WEBSITE HELP
+C. James, A Beginner’s Guide for Post-Processing for Unity 2D
+https://cjames1.medium.com/a-beginnerss-guide-for-post-processing-for-unity-2d-843874f333a1
+Stuart’s Pixel Games, How to Change Sprites Colour or Transparency
+https://stuartspixelgames.com/2019/02/19/how-to-change-sprites-colour-or-transparency-unity-c/
+TechStacker.com, “Help, Things Disappear When I Hit the Play Button in Unity”
+https://techstacker.com/things-disappear-on-play-render-in-unity/#:~:text=One%20of%20the%20most%20common,is%20lower%20than%20your%20camera's.
+
+
+YOUTUBE TUTORIALS
+Antarsoft, Simple Crouching:
+https://www.youtube.com/watch?v=ET59LPjfFfo&t=565s&ab_channel=Antarsoft
+Terresquall, Fixing misaligned Tiles w/ Unity’s Tile Palette
+https://www.youtube.com/watch?v=3KpdT7189Kw&ab_channel=Terresquall
+Lost Relic Games, Fixing Rigidbody Jitter
+https://www.youtube.com/watch?v=XQ_w9iZl0UM&ab_channel=LostRelicGames
+Bardent, How to Deal with Slopes
+https://www.youtube.com/watch?v=QPiZSTEuZnw&ab_channel=Bardent
+Unity, Create 3rd Person Camera with Cinemachine
+https://www.youtube.com/watch?v=537B1kJp9YQ&ab_channel=Unity
+Etredal, Advanced AI in Unity - Physics, Pathfinding, Editor Adjustments
+https://www.youtube.com/watch?v=sWqRfygpl4I&ab_channel=Etredal
+Samyam, Cinemachine Confiner - Camera Bounding Box Unity Tutorial
+https://www.youtube.com/watch?v=izumXk-xoEM&ab_channel=samyam
+Code Monkey, How to make a Health Bar
+https://www.youtube.com/watch?v=Gtw7VyuMdDc&ab_channel=CodeMonkey
+Antarsoft, Health Bar + Lives Counter
+https://www.youtube.com/watch?v=iX0BEiJTjrE&t=266s&ab_channel=Antarsoft
+Tarodev, 2D Camera in Unity + Confining to Bounds
+https://www.youtube.com/watch?v=xxshfe3yzqA&ab_channel=Tarodev
+Blackthornprod, How to make UI in UNITY
+https://www.youtube.com/watch?v=_RIsfVOqTaE&ab_channel=Blackthornprod
+Kaupenjoe, Making an Enemy Spawner
+https://www.youtube.com/watch?v=SELTWo1XZ0c&ab_channel=ModdingbyKaupenjoe
+Root Games, Unity: Pixel Perfect Camera with Cinemachine
+https://www.youtube.com/watch?v=xGz7uMjeRRQ&ab_channel=RootGames
+Coco Code, Create a great GAME OVER screen in Unity UI
+https://www.youtube.com/watch?v=K4uOjb5p3Io&ab_channel=CocoCode
+Code Monkey, Use a Custom Font with Text Mesh Pro in Unity
+https://www.youtube.com/watch?v=nBcP7FaDPE0&ab_channel=CodeMonkey
+ Catodevs, How to Import a Custom Font into Unity
+https://www.youtube.com/watch?v=gMd0xDEFE20&t=112s&ab_channel=CatoDevs
+Tarodev, Load between scenes and show a progress bar
+https://www.youtube.com/watch?v=OmobsXZSRKo&t=351s&ab_channel=Tarodev
+Omnirift, Align UI Elements in Unity
+https://www.youtube.com/watch?v=Aqzcw7sfBq4&ab_channel=Omnirift
+Dapper Dino, How to get started with Unity Video Player
+https://www.youtube.com/watch?v=OdVGyV3rTGs&ab_channel=DapperDino
+Coding in Flow, Sound Effects & Background Music for 2D Unity Platformer
+https://www.youtube.com/watch?v=J77CMuAwVDY&ab_channel=CodinginFlow
+Sunny Valey Studio, How to Save Data between Scenes in Unity
+https://www.youtube.com/watch?v=MBM_4zrQHao&ab_channel=SunnyValleyStudio
+Code Monkey, Keep your Project Clean! NO unused Assets!
+https://www.youtube.com/watch?v=URHoCQ-_WLc&ab_channel=CodeMonkey
+
+UNITY ASSET STORE
+Little Robot Sound Factory, “Fantasy SFX”
+https://assetstore.unity.com/packages/audio/sound-fx/fantasy-sfx-32833
+Goumain Antoine, “Nature Sounds Pack”
+https://assetstore.unity.com/packages/audio/sound-fx/nature-sounds-pack-free-202076
+VGComposer, “Action RPG Music”
+https://assetstore.unity.com/packages/audio/music/action-rpg-music-free-85434
+
+ITCH.IO ASSETS
+Brullov, “Oak Woods - Environment Asset”
+https://brullov.itch.io/oak-woods
+Adwitr, “Health Bar Asset Pack 2”
+https://adwitr.itch.io/pixel-health-bar-asset-pack-2
+Sanctumpixel, “Imp & Axe Demon Pixel Art Character”
+https://sanctumpixel.itch.io/imp-axe-demon-pixel-art-character
+Aamatniekss, “Fantasy Knight - Free Pixelart Animated Character”
+https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character
+Codemanu, “Free Pixel Effects Pack”
+https://codemanu.itch.io/pixelart-effect-pack
+
+INTERNET ASSETS
+Tenor.com
+Animated Falling Leaves: https://tenor.com/search/animated-falling-leaves-background-gifs
+FreeSound.org (audio)
+Demonic Woman Scream: https://freesound.org/people/nick121087/sounds/333832/
+Monster Screams https://freesound.org/people/gpag1/sounds/391552/
+Grunt 2 - Death Pain https://freesound.org/people/tonsil5/sounds/416838/
+Male Jump https://freesound.org/people/Artmasterrich/sounds/345437/
+Launch https://freesound.org/people/kfatehi/sounds/363921/
+Launch https://freesound.org/people/TaraMG/sounds/386044/
+Sword slash https://freesound.org/people/Merrick079/sounds/568169/
+Metal clanking https://freesound.org/people/tomoisace/sounds/524130/
+Leather Bag Drop https://freesound.org/people/gneube/sounds/315838/
+Transition Whoosh https://freesound.org/people/Speedenza/sounds/241146/
+Stick Swoosh https://freesound.org/people/Hitrison/sounds/216675/
+Dark Teleport https://freesound.org/people/oldestmillennial/sounds/533025/
+Youtube Music
+Berserk - My Brother https://www.youtube.com/watch?v=lBdnti4_UUg&ab_channel=UnseenPhantom
+Berserk - Aria https://www.youtube.com/watch?v=CGcv09G5MYc&t=66s&ab_channel=Albireo
+Berserk - 4 Gatsu https://www.youtube.com/results?search_query=Berserk+-+4+Gatsu
+Mixkit.co (audio)
+https://mixkit.co/free-sound-effects/hit/ for Hits
+https://mixkit.co/free-sound-effects/game/ for Game
+https://mixkit.co/free-sound-effects/monster/ for Monster
+DAFONT.com
+VCR OSD Mono by Riciery Leal
+https://www.dafont.com/vcr-osd-mono.font
+Seagram TFB by Kaiserzharkhan
+https://www.dafont.com/seagram-tfb.font
+A Dripping Marker by Wick van den Belt
+https://www.dafont.com/a-dripping-marker.font
+Berserk Imagery & Reference
+Guts Sleeping: https://pbs.twimg.com/media/E11cBm3XMAcADYE?format=jpg&name=small
+Guts Front Face: https://www.deviantart.com/thuddleston/art/Guts-Black-and-White-684995593
+Guts Stare: https://pm1.narvii.com/6582/b9db503dbc7db13bc52e554a238ce5599d147d27_hq.jpg
+Misc. Pixel Imagery
+IT TAKES GUTS Logo https://www.neatoshop.com/product/Pixel-Guts
+
+ANSWERS.UNITY.COM
+“Character controller not colliding with colliders?”
+Vdarned
+https://answers.unity.com/questions/565859/why-is-my-character-controller-not-colliding-with.html
+“Stop Player from Bouncing Off Colliders”
+https://answers.unity.com/questions/1436904/stop-player-from-bouncing-when-colliding-with-obje.html
+Trickman
+“2D Character Bounces of Walls
+https://answers.unity.com/questions/1765845/2d-character-bounce-off-wall-shakes-while-walking.html
+Fixel001
+“Can’t Drag Objects into Scene View”
+https://forum.unity.com/threads/cant-drag-objects-in-the-scene-view.210529/
+Cparki3
+“Check if Component Exists on gameObject”
+https://answers.unity.com/questions/1242481/how-to-check-if-a-component-exists-on-a-gameobject.html
+Flaviusxvii
+“Why can’t my enemies walk up an incline?
+https://answers.unity.com/questions/526651/why-cant-my-enemies-walk-up-an-incline.html
+Meat5000
+“Stop 2D platformer character from sliding down slope”
+https://gamedev.stackexchange.com/questions/192439/stop-2d-platformer-character-from-sliding-down-slope
+ShoulO
+“Comparing 2 identical Vector3 returns false”
+https://forum.unity.com/threads/comparing-two-identical-vector3-returns-false.327128/
+Darkcoder
+“Stop movement while attacking”
+https://answers.unity.com/questions/1721221/stop-movement-while-attacking-1.html
+Agior312
+“How to allow animations to interrupt each other?”
+https://forum.unity.com/threads/how-do-you-allow-animations-to-interrupt-each-other.313216/
+Mecanim-Dev
+“How does ContactFilteR2D work??”
+https://forum.unity.com/threads/how-does-contactfilter2d-work.470527/
+Hippocoder
+“Unity Placing a UI on top of Cinemachine”
+https://gamedev.stackexchange.com/questions/173296/unity-placing-a-ui-on-top-of-cinemachine
+DMGregory
+“Attach UI elements to the Camera”
+https://answers.unity.com/questions/1243845/how-to-i-attach-ui-elements-to-the-camera.html
+Zlorak
+"How to disable GameObject from script after its death”
+https://forum.unity.com/threads/how-to-disable-gameobject-from-script-after-its-death.578269/
+StefNN
+“How to delete or remove a component of a GameObject”
+https://answers.unity.com/questions/378930/how-delete-or-remove-a-component-of-an-gameobject.html
+Jennifer1
+“Strange lines when using tilemap”
+https://forum.unity.com/threads/strange-lines-when-using-tilemap.434195/
+cuproPanda
+“Warning: Rendering at an odd numbered resolution. Pixel Perfect Camerea may not work properly…”
+https://forum.unity.com/threads/warning-rendering-at-an-odd-numbered-resolution-pixel-perfect-camera-may-not-work-properly.921125/
+Bizngamer
+“ArgumentOutOfRangeException for NameToLayer()”
+https://stackoverflow.com/questions/67183612/argumentoutofrangeexception-specified-argument-was-out-of-the-range-of-valid-va
+Derhugo
+“How to delete instantiated GameObject”
+https://answers.unity.com/questions/534314/how-to-delete-instantiated-gameobject.html
+clunk47
+“Enemy Prefab doesn’t follow Player”
+https://answers.unity.com/questions/59904/enemy-prefab-doesnt-follow-player.html
+superpig
+“Difference between Transform and Rect Transform”
+https://answers.unity.com/questions/1626018/what-is-the-difference-between-transform-and-rectt.html
+highpockets
+“Unity 4.6 UI Bring Element in Front”
+https://answers.unity.com/questions/874238/unity-46-ui-bring-element-in-front.html
+KurtGokhan
+“How to hide UI elements without disabling them”
+https://forum.unity.com/threads/how-to-disable-hide-ui-elements-without-disabling-them.282100/
+Eric5h5
+“Changing the color of all children in an empty gameObject”
+https://answers.unity.com/questions/730169/changing-the-color-of-all-children-in-an-empty-gam.html
+UnityDeveloper
+“How to find all objects in specific layer?”
+https://answers.unity.com/questions/179310/how-to-find-all-objects-in-specific-layer.html
+Eric5h5
+“Match Canvas with Main Camera - Unity”
+https://stackoverflow.com/questions/33086715/match-canvas-with-main-camera-unity
+User3071284
+“Comparing Content of 2 Different Arrays in Unity”
+https://forum.unity.com/threads/comparing-content-of-two-different-arrays-how-to.202431/
+Dustin-Home
+“White images with material None rendered green”
+https://forum.unity.com/threads/solved-white-images-with-material-none-rendered-green.454488/
+Inter-Illusion
+“How to change color of an image with script?”
+https://answers.unity.com/questions/995250/how-to-change-the-color-of-an-image-with-script.html
+DiegoSLTS
+“Screen Resolution when switching scenes”
+https://forum.unity.com/threads/screen-resolution-when-switching-scenes.686224
+Shotoutgames
+“Rigidbody 2D jittery”
+https://answers.unity.com/questions/1793291/rigidbody-2d-jittery.html
+Sully
+“Cinemachine - Crazy jitter”
+https://forum.unity.com/threads/cinemachine-crazy-jitter.465865/
+GregoryI
+

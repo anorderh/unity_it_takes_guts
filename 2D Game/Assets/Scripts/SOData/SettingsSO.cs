@@ -6,8 +6,6 @@ using UnityEngine;
 public class SettingsSO : ScriptableObject
 {
     [SerializeField]
-    private float musicFactor = 1f;
-    [SerializeField]
     private float soundFactor = 1f;
     [SerializeField]
     private int[] res = {1600, 900};
@@ -29,13 +27,7 @@ public class SettingsSO : ScriptableObject
         set {res[1] = value;}
     }
 
-    public float Music {
-        set {musicFactor = value;}
-        get {return musicFactor;}
-    }
-
     public void Reset() {
-        musicFactor = 1f;
         soundFactor = 1f;
     }
 }

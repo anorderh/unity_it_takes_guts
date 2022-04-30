@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0175f9d0ded7af348941f5c277fad975, type: 3}
   m_Name: GameDifficulty
   m_EditorClassIdentifier: 
-  enemyInfo: 
+  enemyInfo: 0a00000003000000

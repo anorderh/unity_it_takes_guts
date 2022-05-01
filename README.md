@@ -1,5 +1,6 @@
-<--------IT TAKES GUTS--------->
-<------------------------------>
+**IT TAKES GUTS** 
+
+
 IT TAKES GUTS is a 2D Hack 'n Slash Platformer. The player plays as a Knight traveling through a 
 forest when Demon Imps appear from portals to start attacking. Levels are organized in Easy, Medium, Hard,
 and Endless.

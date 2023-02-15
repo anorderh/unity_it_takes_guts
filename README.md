@@ -1,32 +1,29 @@
 <div align="center">
 
-![banner](pics/banner.png)
+<img src="pics/ittakesgutsthumbnail.jpg" width="500" height=auto>
 
-*A 2D Hack'N Slash combat platformer powered by Unity Game Engine, inspired by BERSERK.*
+<div style="text-align:center;"><em>A 2D Hack'N Slash combat platformer powered by Unity Game Engine, inspired by BERSERK.</em></div>
+<p></p>
 
   <a href="">![GitHub last commit](https://img.shields.io/github/last-commit/anorderh/unity_it_takes_guts)</a>
   <a href="">![GitHub contributors](https://img.shields.io/github/contributors/anorderh/unity_it_takes_guts)</a>
   <a href="">![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/anorderh/unity_it_takes_guts)</a>
   <a href="">![GitHub](https://img.shields.io/github/license/anorderh/unity_it_takes_guts)</a>
 
-<p float="left">
-[![itch.io](pics/itchLogo.svg)](https://anorde.itch.io/it-takes-guts)
-[![Youtube](pics/ytLogo.png)](https://www.youtube.com/watch?v=5odzbZZq-bM)
-</p>
-
-</div>
+<a href="https://anorde.itch.io/it-takes-guts"><img src="pics/itchLogo.svg" width="200"></a>
+<a href="https://www.youtube.com/watch?v=5odzbZZq-bM"><img src="pics/ytLogo.png" width="100"></a>
 
 </div>
 
 ## Overview
 
-![overview](pics/itg2.jpg)
+<img src="pics/itg2.jpg" width="500"></a>
 
     **It Takes Guts** is a Hack 'N Slash platformer that pits the player against an onslaught of  enemy waves, known as "Demon Imps". Massively outnumbered, the player is encouraged to practice crowd control and constant movement. The player's goal is to eliminate a number of enemies based on the set difficulty. If the player's health is completely depleted before this, they lose. 
 
 ## Controls
 
-![controls](pics/itg4.jpg)
+<img src="pics/itg4.jpg" width="500"></a>
 
 * WASD - *move around* 
 
@@ -42,7 +39,7 @@
 
 ## Educational
 
-![educational](pics/itg1.jpg)
+<img src="pics/itg1.jpg" width="500"></a>
 
     This game was made using **Unity Game Engine** and `C#`/`.NET` scripts implementing Unity's framework (MonoBehaviour). Some core features include:
 
@@ -54,11 +51,11 @@
 
 4. UI management and audio integration
 
-For more information regarding the game's design and features, check out the [General Design Document]([S_22_GDD_2D_Norderhaug_Anthony.docx - Google Docs](https://docs.google.com/document/d/1Wxw3b1kfkffYeZ0WUoScJzD7MEI9GRNE/edit?usp=sharing&ouid=100855899086524971871&rtpof=true&sd=true)).
+For more information regarding the game's design and features, check out the [General Design Document](https://docs.google.com/document/d/1Wxw3b1kfkffYeZ0WUoScJzD7MEI9GRNE/edit?usp=sharing&ouid=100855899086524971871&rtpof=true&sd=true).
 
 ## Requirements
 
-* An internet connection to access https://anorde.itch.io/it-takes-guts.
+* An internet connection to access https://anorde.itch.io/it-takes-guts OR downloaded executable in `Releases/`(Windows only)
 
 * *Recommended* - An NVIDIA graphics card
 

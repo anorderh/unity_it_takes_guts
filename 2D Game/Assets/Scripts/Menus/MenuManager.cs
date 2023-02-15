@@ -21,9 +21,9 @@ public class MenuManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         ResetPlayerData();
-        UpdateRes();
+        // UpdateRes();
         ChangeMenuState(true);
     }
 

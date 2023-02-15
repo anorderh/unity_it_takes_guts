@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HealthBarAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: e1f8b32e21b534e4398772d38fd17459, type: 3}
+    - {fileID: 2800000, guid: ef9e51342ffbee541b4778e81cc76f61, type: 3}
+    - {fileID: 2800000, guid: 377670f87e566ab4ea09f8f22dec6dd4, type: 3}
+    - {fileID: 2800000, guid: bb1dfb78cee23ff4c8cb2f9088aff327, type: 3}
+    - {fileID: 2800000, guid: 2cd6dd85fd143ad40938d58c03b35297, type: 3}
+    - {fileID: 2800000, guid: 5b62c80343d16114aad84e7fbad29ad0, type: 3}
+    - {fileID: 2800000, guid: 887323cf689c56c44895b0cc50679cfd, type: 3}
+    - {fileID: 2800000, guid: 3f88b4c96d9e1354cb55fceb95197eea, type: 3}
+    - {fileID: 2800000, guid: fee340d28cb70a941815263c770016b7, type: 3}
+    - {fileID: 2800000, guid: 4906dfff4ffa6f242829fc6074833e35, type: 3}
+    - {fileID: 2800000, guid: ceed35e7979dc164f93bde212059cc81, type: 3}
+    - {fileID: 2800000, guid: 385748e7841e80d4087d82901d89ad16, type: 3}
+    - {fileID: 2800000, guid: a5d221f9b1edda1478944ec036f49183, type: 3}
+    - {fileID: 2800000, guid: d015a1aa6a78b924ea6f95aee66e96c4, type: 3}
+    - {fileID: 2800000, guid: d42315b83b93d304ca922606e2b46420, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: fee340d28cb70a941815263c770016b7, type: 3}
+  - {fileID: 21300000, guid: 5b62c80343d16114aad84e7fbad29ad0, type: 3}
+  - {fileID: 21300000, guid: ef9e51342ffbee541b4778e81cc76f61, type: 3}
+  - {fileID: 21300000, guid: 2cd6dd85fd143ad40938d58c03b35297, type: 3}
+  - {fileID: 21300000, guid: ceed35e7979dc164f93bde212059cc81, type: 3}
+  - {fileID: 21300000, guid: 385748e7841e80d4087d82901d89ad16, type: 3}
+  - {fileID: 3321681590055085053, guid: bb1dfb78cee23ff4c8cb2f9088aff327, type: 3}
+  - {fileID: -3750482850934594921, guid: bb1dfb78cee23ff4c8cb2f9088aff327, type: 3}
+  - {fileID: 5372776407919291188, guid: bb1dfb78cee23ff4c8cb2f9088aff327, type: 3}
+  - {fileID: 21300000, guid: d42315b83b93d304ca922606e2b46420, type: 3}
+  - {fileID: 21300000, guid: 377670f87e566ab4ea09f8f22dec6dd4, type: 3}
+  - {fileID: 21300000, guid: 3f88b4c96d9e1354cb55fceb95197eea, type: 3}
+  - {fileID: 21300000, guid: a5d221f9b1edda1478944ec036f49183, type: 3}
+  - {fileID: 21300000, guid: d015a1aa6a78b924ea6f95aee66e96c4, type: 3}
+  - {fileID: 21300000, guid: e1f8b32e21b534e4398772d38fd17459, type: 3}
+  - {fileID: 21300000, guid: 887323cf689c56c44895b0cc50679cfd, type: 3}
+  - {fileID: 21300000, guid: 4906dfff4ffa6f242829fc6074833e35, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - beer (3)
+  - rpg (3)
+  - redblue (2)
+  - rpg (2)
+  - greenbar (1)
+  - greenbar (2)
+  - rpg (1)_2
+  - rpg (1)_1
+  - rpg (1)_0
+  - HealthBar DARK
+  - redblue (3)
+  - beer (2)
+  - greenbar (3)
+  - Health Bar Asset Pack 2.2 by Adwit Rahman
+  - redblue (1)
+  - beer (1)
+  - Darkupdate
+  m_RenderDataMap: {}
+  m_Tag: HealthBarAtlas
+  m_IsVariant: 0

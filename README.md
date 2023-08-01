@@ -15,6 +15,10 @@
 
 </div>
 
+## Demo
+
+https://github.com/anorderh/unity_it_takes_guts/assets/60157725/58363d7b-c8e9-41ff-9695-e476503c7e75
+
 ## Overview
 
 <img src="pics/itg2.jpg" width="500"></a>
